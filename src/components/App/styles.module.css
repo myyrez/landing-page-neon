@@ -1,0 +1,344 @@
+* {
+    font-family: "Ibarra Real Nova", serif;
+}
+
+body {
+    overflow: hidden;
+    /* transition: 3000ms ease-in-out; */
+    /* transform: translateX(-100vw); */
+}
+
+.background {
+    display: flex;
+    background-color: #161616;
+    height: 100vh;
+    width: 200vw;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+/* -- login -- */
+
+.login {
+    height: 100%;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    gap: 1rem;
+}
+
+.headerDiv {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header {
+    color: #fff;
+    font-size: clamp(3rem, 8vw, 8rem);
+}
+
+.loginFundo {
+    height: 100%;
+    width: 100vw;
+
+    background-image: radial-gradient(
+        rgba(2255, 255, 255, 0.05) 5%,
+        transparent 10%
+    );
+
+    background-position: 0% 0%;
+    background-size: 12vmin 12vmin;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: 1;
+    transition: 700ms;
+}
+
+.login[data-active-index='0'] > .loginFundo {
+    background-position: 0% -25%;
+}
+.login[data-active-index='1'] > .loginFundo {
+    background-position: 0% -50%
+}
+.login[data-active-index='2'] > .loginFundo {
+    background-position: 0% -75%
+}
+.login[data-active-index='3'] > .loginFundo {
+    background-position: 0% -100%
+}
+
+.loginItens {
+    display: flex;
+    width: 0vw;
+    margin-left: 10%;
+    flex-direction: column;
+    z-index: 2;
+    position: relative;
+}
+
+.cadastroDiv {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: fit-content;
+    z-index: 2;
+    margin-left: 10%;
+    color: #fff;
+}
+
+.cadastroLink {
+    font-size: clamp(1rem, 2vw, 2rem);
+    text-decoration: none;
+    transition: 700ms;
+    cursor: pointer;
+}
+
+.decoration {
+    height: 1px;
+    width: 0%;
+    transition: 700ms;
+    margin-top: -0.9rem;
+    background-color: #fff;
+}
+
+.cadastroLink:hover ~ .decoration {
+    width: 100%;
+}
+
+.loginButtonDiv {
+    width: 100%;
+    margin-block: 1rem;
+    z-index: 2;
+}
+
+.loginButton {
+    margin-left: 10%;
+    background-color: #212121;
+    color: #fff;
+    font-size: clamp(1.4rem, 2vw, 2rem);
+    border: none;
+    border-radius: .5rem;
+    width: 7rem;
+    padding: 1rem;
+    transition: 700ms;
+}
+
+.loginButton:hover {
+    box-shadow: 0 0px 5px rgba(255, 255, 255, 0.075) inset, 0 0 19px rgba(255, 255, 255, 0.6);
+    background-color: #fff;
+    color: #212121;
+    cursor: pointer;
+}
+
+.loginImagem {
+    height: 100%;
+    width: 100%;
+
+    background-image: url('../../assets/images/moon6.jpg');
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: 0;
+
+    background-position: center 10%;
+    background-size: 180vmax;
+    opacity: 0.3;
+
+    transition: opacity 800ms ease,
+        background-size 800ms ease,
+        background-position 800ms ease;
+}
+
+.login[data-active-index='0'] > .loginImagem {
+    background-position: center 10%
+}
+.login[data-active-index='1'] > .loginImagem {
+    background-position: center 20%
+}
+.login[data-active-index='2'] > .loginImagem {
+    background-position: center 30%
+}
+.login[data-active-index='3'] > .loginImagem {
+    background-position: center 40%
+}
+
+.inputLabel {
+    color: #fff;
+    width: fit-content;
+    font-size: clamp(3rem, 8vw, 8rem);
+}
+
+.input {
+    display: block;
+    width: 15rem;
+    background-color: #212121;
+    padding: .5rem;
+    margin-block: .5rem;
+    border: none;
+    border-radius: .5rem;
+    outline: none;
+    color: #fff;
+    font-size: clamp(1.4rem, 2vw, 2rem);
+    letter-spacing: .1rem;
+    transition: 500ms;
+}
+
+.input:hover, input:focus {
+    box-shadow: 0 0px 5px rgba(0, 0, 0, 0.075) inset, 0 0 19px rgba(0, 0, 0, 0.6);
+}
+
+.loginItens:hover > .input {
+    opacity: 0.5;
+}
+
+.loginItens:hover > .input:hover {
+    opacity: 1;
+}
+
+.loginItens:hover ~ .loginImagem {
+    background-size: 190vmax;
+    opacity: .2;
+}
+
+.loginItens:hover ~ .loginFundo {
+    background-size: 11.5vmin 11.5vmin;
+}
+
+/* -- cadastro -- */
+
+.cadastro {
+    height: 100%;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    gap: 1rem;
+}
+
+.cadastroHeaderDiv {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+
+.cadastroHeader {
+    color: #fff;
+    font-size: clamp(3rem, 8vw, 8rem);
+    transform: scaleX(-1);
+}
+
+.cadastroFundo {
+    height: 100%;
+    width: 100vw;
+
+    background-image: radial-gradient(
+        rgba(2255, 255, 255, 0.05) 5%,
+        transparent 10%
+    );
+
+    background-position: 0% 0%;
+    background-size: 12vmin 12vmin;
+    position: absolute;
+    left: 100%;
+    top: 0px;
+    z-index: 1;
+    transition: 700ms;
+}
+
+.cadastro[data-active-index='0'] > .cadastroFundo {
+    background-position: 0% -25%;
+}
+.cadastro[data-active-index='1'] > .cadastroFundo {
+    background-position: 0% -50%
+}
+.cadastro[data-active-index='2'] > .cadastroFundo {
+    background-position: 0% -75%
+}
+.cadastro[data-active-index='3'] > .cadastroFundo {
+    background-position: 0% -100%
+}
+
+.cadastroImagem {
+    height: 100%;
+    width: 100vw;
+
+    background-image: url('../../assets/images/moon6.jpg');
+    position: absolute;
+    left: 100%;
+    top: 0px;
+    z-index: 0;
+    transform: scaleX(-1);
+
+    background-position: center 10%;
+    background-size: 180vmax;
+    opacity: 0.3;
+
+    transition: opacity 800ms ease,
+        background-size 800ms ease,
+        background-position 800ms ease;
+}
+
+.cadastro[data-active-index='0'] > .cadastroImagem {
+    background-position: center 10%
+}
+.cadastro[data-active-index='1'] > .cadastroImagem {
+    background-position: center 20%
+}
+.cadastro[data-active-index='2'] > .cadastroImagem {
+    background-position: center 30%
+}
+.cadastro[data-active-index='3'] > .cadastroImagem {
+    background-position: center 40%
+}
+
+.cadastroItens {
+    display: flex;
+    width: 0vw;
+    margin-left: 10%;
+    flex-direction: column;
+    z-index: 2;
+    position: relative;
+}
+
+.cadastroInput {
+    display: block;
+    width: 15rem;
+    background-color: #212121;
+    padding: .5rem;
+    margin-block: .5rem;
+    border: none;
+    border-radius: .5rem;
+    outline: none;
+    color: #fff;
+    font-size: clamp(1.4rem, 2vw, 2rem);
+    letter-spacing: .1rem;
+    transition: 500ms;
+}
+
+.cadastroInput:hover, input:focus {
+    box-shadow: 0 0px 5px rgba(0, 0, 0, 0.075) inset, 0 0 19px rgba(0, 0, 0, 0.6);
+}
+
+.cadastroItens:hover > .cadastroInput {
+    opacity: 0.5;
+}
+
+.cadastroItens:hover > .cadastroInput:hover {
+    opacity: 1;
+}
+
+.cadastroItens:hover ~ .cadastroImagem {
+    background-size: 190vmax;
+    opacity: .2;
+}
+
+
+.cadastroItens:hover ~ .cadastroFundo {
+    background-size: 11.5vmin 11.5vmin;
+}
