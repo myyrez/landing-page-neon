@@ -4,8 +4,8 @@
 
 body {
     overflow: hidden;
-    /* transition: 3000ms ease-in-out; */
-    /* transform: translateX(-100vw); */
+    transition: 3000ms ease-in-out;
+    transform: translateX(-100vw);
 }
 
 .background {
@@ -36,6 +36,7 @@ body {
 }
 
 .header {
+    margin-block: 2rem;
     color: #fff;
     font-size: clamp(3rem, 8vw, 8rem);
 }
@@ -58,7 +59,7 @@ body {
     transition: 700ms;
 }
 
-.login[data-active-index='0'] > .loginFundo {
+/* .login[data-active-index='0'] > .loginFundo {
     background-position: 0% -25%;
 }
 .login[data-active-index='1'] > .loginFundo {
@@ -69,7 +70,7 @@ body {
 }
 .login[data-active-index='3'] > .loginFundo {
     background-position: 0% -100%
-}
+} */
 
 .loginItens {
     display: flex;
@@ -153,7 +154,7 @@ body {
         background-position 800ms ease;
 }
 
-.login[data-active-index='0'] > .loginImagem {
+/* .login[data-active-index='0'] > .loginImagem {
     background-position: center 10%
 }
 .login[data-active-index='1'] > .loginImagem {
@@ -164,7 +165,7 @@ body {
 }
 .login[data-active-index='3'] > .loginImagem {
     background-position: center 40%
-}
+} */
 
 .inputLabel {
     color: #fff;
@@ -192,7 +193,7 @@ body {
 }
 
 .loginItens:hover > .input {
-    opacity: 0.5;
+    opacity: 0.3;
 }
 
 .loginItens:hover > .input:hover {
@@ -215,7 +216,7 @@ body {
     width: 100vw;
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
+    justify-content: right;
     gap: 1rem;
 }
 
@@ -224,10 +225,10 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 2;
 }
 
 .cadastroHeader {
+    margin-block: 2rem;
     color: #fff;
     font-size: clamp(3rem, 8vw, 8rem);
     transform: scaleX(-1);
@@ -251,7 +252,7 @@ body {
     transition: 700ms;
 }
 
-.cadastro[data-active-index='0'] > .cadastroFundo {
+/* .cadastro[data-active-index='0'] > .cadastroFundo {
     background-position: 0% -25%;
 }
 .cadastro[data-active-index='1'] > .cadastroFundo {
@@ -262,7 +263,7 @@ body {
 }
 .cadastro[data-active-index='3'] > .cadastroFundo {
     background-position: 0% -100%
-}
+} */
 
 .cadastroImagem {
     height: 100%;
@@ -284,7 +285,7 @@ body {
         background-position 800ms ease;
 }
 
-.cadastro[data-active-index='0'] > .cadastroImagem {
+/* .cadastro[data-active-index='0'] > .cadastroImagem {
     background-position: center 10%
 }
 .cadastro[data-active-index='1'] > .cadastroImagem {
@@ -295,15 +296,21 @@ body {
 }
 .cadastro[data-active-index='3'] > .cadastroImagem {
     background-position: center 40%
-}
+} */
 
 .cadastroItens {
     display: flex;
     width: 0vw;
-    margin-left: 10%;
+    margin-right: 18.5rem;
     flex-direction: column;
     z-index: 2;
     position: relative;
+}
+
+.cadastroItensWrap {
+    width: 100%;
+    display: flex;
+    justify-content: right;
 }
 
 .cadastroInput {
@@ -326,7 +333,7 @@ body {
 }
 
 .cadastroItens:hover > .cadastroInput {
-    opacity: 0.5;
+    opacity: 0.3;
 }
 
 .cadastroItens:hover > .cadastroInput:hover {
