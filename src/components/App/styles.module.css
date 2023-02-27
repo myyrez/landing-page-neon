@@ -5,7 +5,26 @@
 body {
     overflow: hidden;
     transition: 3000ms ease-in-out;
-    transform: translateX(-100vw);
+    transform: translateX(0vw);
+}
+
+.eyeIcon {
+    height: 1rem;
+    width: 1rem;
+    color: #fff;
+    position: relative;
+    top: -28%;
+    left: 14rem;
+    cursor: pointer;
+}
+.eyeIconCadastro {
+    height: 1rem;
+    width: 1rem;
+    color: #fff;
+    position: relative;
+    top: -38%;
+    left: 14rem;
+    cursor: pointer;
 }
 
 .background {
@@ -96,13 +115,20 @@ body {
     text-decoration: none;
     transition: 700ms;
     cursor: pointer;
+    color: #fff;
+    margin-block: 0;
+    z-index: 2;
+}
+
+.cadastroLink:hover {
+    box-shadow: 0px 50px 5px rgba(255, 255, 255, 0.075) inset, 0px 0px 200px rgba(255, 255, 255, 0.6);
 }
 
 .decoration {
     height: 1px;
     width: 0%;
     transition: 700ms;
-    margin-top: -0.9rem;
+    /* margin-top: -0.9rem; */
     background-color: #fff;
 }
 
@@ -301,7 +327,7 @@ body {
 .cadastroItens {
     display: flex;
     width: 0vw;
-    margin-right: 18.5rem;
+    margin-right: 20.5rem;
     flex-direction: column;
     z-index: 2;
     position: relative;
@@ -328,6 +354,40 @@ body {
     transition: 500ms;
 }
 
+.cadastroButtonDiv {
+    display: flex;
+    justify-content: right;
+    margin-right: 4.5rem;
+    z-index: 2;
+    align-items: center;
+}
+
+.cadastroButton {
+    margin-left: 5%;
+    background-color: #212121;
+    color: #fff;
+    font-size: clamp(1.4rem, 2vw, 2rem);
+    border: none;
+    border-radius: .5rem;
+    width: 16rem;
+    padding: 1rem;
+    transition: 700ms;
+}
+
+.linkDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.cadastroButton:hover {
+    box-shadow: 0 0px 5px rgba(255, 255, 255, 0.075) inset, 0 0 19px rgba(255, 255, 255, 0.6);
+    background-color: #fff;
+    color: #212121;
+    cursor: pointer;
+}
+
 .cadastroInput:hover, input:focus {
     box-shadow: 0 0px 5px rgba(0, 0, 0, 0.075) inset, 0 0 19px rgba(0, 0, 0, 0.6);
 }
@@ -340,12 +400,12 @@ body {
     opacity: 1;
 }
 
-.cadastroItens:hover ~ .cadastroImagem {
+.cadastroItensWrap:hover ~ .cadastroImagem {
     background-size: 190vmax;
     opacity: .2;
 }
 
 
-.cadastroItens:hover ~ .cadastroFundo {
+.cadastroItensWrap:hover ~ .cadastroFundo {
     background-size: 11.5vmin 11.5vmin;
 }
