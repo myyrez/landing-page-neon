@@ -1,11 +1,19 @@
 * {
     font-family: "Ibarra Real Nova", serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    box-sizing: border-box;
 }
 
 body {
-    overflow: hidden;
+    margin: auto;
     transition: 3000ms ease-in-out;
     transform: translateX(0vw);
+    overflow: hidden;
 }
 
 .eyeIcon {
@@ -33,14 +41,14 @@ body {
     height: 100vh;
     width: 200vw;
     justify-content: space-between;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 /* -- login -- */
 
 .login {
     height: 100%;
-    width: 100vw;
+    width: 100%;
     display: flex;
     flex-direction: column;
     /* justify-content: center; */
@@ -62,7 +70,7 @@ body {
 
 .loginFundo {
     height: 100%;
-    width: 100vw;
+    width: 100%;
 
     background-image: radial-gradient(
         rgba(2255, 255, 255, 0.05) 5%,
@@ -78,19 +86,6 @@ body {
     transition: 700ms;
 }
 
-/* .login[data-active-index='0'] > .loginFundo {
-    background-position: 0% -25%;
-}
-.login[data-active-index='1'] > .loginFundo {
-    background-position: 0% -50%
-}
-.login[data-active-index='2'] > .loginFundo {
-    background-position: 0% -75%
-}
-.login[data-active-index='3'] > .loginFundo {
-    background-position: 0% -100%
-} */
-
 .loginItens {
     display: flex;
     width: 0vw;
@@ -98,6 +93,7 @@ body {
     flex-direction: column;
     z-index: 2;
     position: relative;
+    transition: 700ms;
 }
 
 .cadastroDiv {
@@ -140,6 +136,10 @@ body {
     width: 100%;
     margin-block: 1rem;
     z-index: 2;
+    opacity: 1;
+    transition: 700ms;
+    display: flex;
+    align-items: center;
 }
 
 .loginButton {
@@ -150,6 +150,7 @@ body {
     border: none;
     border-radius: .5rem;
     width: 7rem;
+    height: 4rem;
     padding: 1rem;
     transition: 700ms;
 }
@@ -159,6 +160,13 @@ body {
     background-color: #fff;
     color: #212121;
     cursor: pointer;
+}
+
+.loginButton:active {
+    /* margin-top: .25rem; */
+    transition: 50ms;
+    background-color: #fff;
+    box-shadow: 0 0px 5px rgba(255, 255, 255, 0.075) inset, 0 0 50px rgba(255, 255, 255, 0.6);
 }
 
 .loginImagem {
@@ -180,19 +188,6 @@ body {
         background-position 800ms ease;
 }
 
-/* .login[data-active-index='0'] > .loginImagem {
-    background-position: center 10%
-}
-.login[data-active-index='1'] > .loginImagem {
-    background-position: center 20%
-}
-.login[data-active-index='2'] > .loginImagem {
-    background-position: center 30%
-}
-.login[data-active-index='3'] > .loginImagem {
-    background-position: center 40%
-} */
-
 .inputLabel {
     color: #fff;
     width: fit-content;
@@ -201,7 +196,7 @@ body {
 
 .input {
     display: block;
-    width: 15rem;
+    width: 16rem;
     background-color: #212121;
     padding: .5rem;
     margin-block: .5rem;
@@ -239,7 +234,7 @@ body {
 
 .cadastro {
     height: 100%;
-    width: 100vw;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: right;
@@ -262,7 +257,7 @@ body {
 
 .cadastroFundo {
     height: 100%;
-    width: 100vw;
+    width: 100%;
 
     background-image: radial-gradient(
         rgba(2255, 255, 255, 0.05) 5%,
@@ -278,22 +273,9 @@ body {
     transition: 700ms;
 }
 
-/* .cadastro[data-active-index='0'] > .cadastroFundo {
-    background-position: 0% -25%;
-}
-.cadastro[data-active-index='1'] > .cadastroFundo {
-    background-position: 0% -50%
-}
-.cadastro[data-active-index='2'] > .cadastroFundo {
-    background-position: 0% -75%
-}
-.cadastro[data-active-index='3'] > .cadastroFundo {
-    background-position: 0% -100%
-} */
-
 .cadastroImagem {
     height: 100%;
-    width: 100vw;
+    width: 100%;
 
     background-image: url('../../assets/images/moon6.jpg');
     position: absolute;
@@ -311,19 +293,6 @@ body {
         background-position 800ms ease;
 }
 
-/* .cadastro[data-active-index='0'] > .cadastroImagem {
-    background-position: center 10%
-}
-.cadastro[data-active-index='1'] > .cadastroImagem {
-    background-position: center 20%
-}
-.cadastro[data-active-index='2'] > .cadastroImagem {
-    background-position: center 30%
-}
-.cadastro[data-active-index='3'] > .cadastroImagem {
-    background-position: center 40%
-} */
-
 .cadastroItens {
     display: flex;
     width: 0vw;
@@ -331,6 +300,7 @@ body {
     flex-direction: column;
     z-index: 2;
     position: relative;
+    transition: 700ms;
 }
 
 .cadastroItensWrap {
@@ -341,7 +311,7 @@ body {
 
 .cadastroInput {
     display: block;
-    width: 15rem;
+    width: 16rem;
     background-color: #212121;
     padding: .5rem;
     margin-block: .5rem;
@@ -360,6 +330,8 @@ body {
     margin-right: 4.5rem;
     z-index: 2;
     align-items: center;
+    opacity: 1;
+    transition: 700ms;
 }
 
 .cadastroButton {
@@ -388,6 +360,13 @@ body {
     cursor: pointer;
 }
 
+.cadastroButton:active {
+    /* margin-top: .25rem; */
+    transition: 50ms;
+    background-color: #fff;
+    box-shadow: 0 0px 5px rgba(255, 255, 255, 0.075) inset, 0 0 50px rgba(255, 255, 255, 0.6);
+}
+
 .cadastroInput:hover, input:focus {
     box-shadow: 0 0px 5px rgba(0, 0, 0, 0.075) inset, 0 0 19px rgba(0, 0, 0, 0.6);
 }
@@ -409,3 +388,21 @@ body {
 .cadastroItensWrap:hover ~ .cadastroFundo {
     background-size: 11.5vmin 11.5vmin;
 }
+
+@media screen and (max-width: 560px) {
+    .cadastroItensWrap {
+        justify-content: left;
+    }
+    
+    .cadastroItens {
+        margin-left: 25%;
+    }
+
+    .cadastroButtonDiv {
+        flex-direction: column-reverse;
+        margin: 0;
+    }
+    .cadastroButton {
+        margin-bottom: 1rem;
+    }
+} 

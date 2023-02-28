@@ -7,6 +7,13 @@ export const App = () => {
   const loginImagem = document.getElementById('loginImagem')
   const cadastroFundo = document.getElementById('cadastroFundo')
   const cadastroImagem = document.getElementById('cadastroImagem')
+
+  const cadastroButtonDiv = document.getElementById('cadastroButtonDiv')
+  const loginButtonDiv = document.getElementById('loginButtonDiv')
+  const loginItens = document.getElementById('loginItens')
+  const cadastroItens = document.getElementById('cadastroItens')
+  const loginLink = document.getElementById('loginLink')
+
   const senhaLogin = document.getElementById('senhaLogin')
   const senhaCadastro = document.getElementById('senhaCadastro')
   const confirmarSenhaCadastro = document.getElementById('confirmarSenhaCadastro')
@@ -14,30 +21,21 @@ export const App = () => {
   const [loginIndex, setLoginIndex] = useState(-1)
   const [cadastroIndex, setCadastroIndex] = useState(-1)
   const [senhaOnOff, setSenhaOnOff] = useState(0)
+  const [lockInputHover, setLockInputHover] = useState(false)
 
   const changePageLogin = () => {
     setTimeout(() => {
       document.body.style.transform = 'translateX(0vw)'
     }, 500);
 
-      cadastroImagem.style.backgroundPosition = 'center 10%'
-      loginImagem.style.backgroundPosition = 'center 10%'
-      cadastroFundo.style.backgroundPosition = '0% 0%'
-      loginFundo.style.backgroundPosition = '0% 0%'
-      setLoginIndex(-1)
-      setCadastroIndex(-1)
+    setLockInputHover(true)
   }
   const changePageCadastro = () => {
     setTimeout(() => {
       document.body.style.transform = 'translateX(-100vw)'
     }, 500);
 
-      cadastroImagem.style.backgroundPosition = 'center 10%'
-      loginImagem.style.backgroundPosition = 'center 10%'
-      cadastroFundo.style.backgroundPosition = '0% 0%'
-      loginFundo.style.backgroundPosition = '0% 0%'
-      setLoginIndex(-1)
-      setCadastroIndex(-1)
+    setLockInputHover(true)
   }
 
   const showPassword = () => {
@@ -56,6 +54,30 @@ export const App = () => {
   }
   
   useEffect(() => {
+    if (lockInputHover) {
+      cadastroImagem.style.backgroundPosition = 'center 10%'
+      loginImagem.style.backgroundPosition = 'center 10%'
+      cadastroFundo.style.backgroundPosition = '0% 0%'
+      loginFundo.style.backgroundPosition = '0% 0%'
+      setLoginIndex(-1)
+      setCadastroIndex(-1)
+
+      cadastroButtonDiv.style.opacity = '0'
+      loginButtonDiv.style.opacity = '0'
+      loginItens.style.opacity = '0'
+      cadastroItens.style.opacity = '0'
+      loginLink.style.opacity = '0'
+
+      setTimeout(() => {
+        cadastroButtonDiv.style.opacity = '1'
+        loginButtonDiv.style.opacity = '1'
+        loginItens.style.opacity = '1'
+        cadastroItens.style.opacity = '1'
+        loginLink.style.opacity = '1'
+        setLockInputHover(false)
+      }, 3500);
+    }
+
     Array.from(document.getElementsByClassName(styles.input))
     .forEach((item, index) => {
       item.onmouseover = () => {
@@ -70,36 +92,50 @@ export const App = () => {
       }
     })
 
-    switch (loginIndex) {
-      case 0: 
-        loginFundo.style.backgroundPosition = '0% -25%'
-        loginImagem.style.backgroundPosition = 'center 10%'
-        break;
-      case 1:
-        loginFundo.style.backgroundPosition = '0% -50%'
-        loginImagem.style.backgroundPosition = 'center 20%'
-        break;
-    }
-
-    switch (cadastroIndex) {
-      case 0: 
-        cadastroFundo.style.backgroundPosition = '0% -25%'
-        cadastroImagem.style.backgroundPosition = 'center 10%'
-        break;
-      case 1:
-        cadastroFundo.style.backgroundPosition = '0% -50%'
-        cadastroImagem.style.backgroundPosition = 'center 20%'
-        break;
-      case 2:
-        cadastroFundo.style.backgroundPosition = '0% -75%'
-        cadastroImagem.style.backgroundPosition = 'center 30%'
-        break;
-      case 3:
-        cadastroFundo.style.backgroundPosition = '0% -100%'
-        cadastroImagem.style.backgroundPosition = 'center 40%'
-        break;
-    }
   })
+  switch (loginIndex) {
+    case 0: 
+      if (lockInputHover) break;
+      loginFundo.style.backgroundPosition = '0% -25%'
+      loginImagem.style.backgroundPosition = 'center 20%'
+      break;
+    case 1:
+      if (lockInputHover) break;
+      loginFundo.style.backgroundPosition = '0% -50%'
+      loginImagem.style.backgroundPosition = 'center 30%'
+      break;
+    // default:
+    //   loginFundo.style.backgroundPosition = '0% 0%'
+    //   loginImagem.style.backgroundPosition = 'center 10%'
+    //   break;
+  }
+
+  switch (cadastroIndex) {
+    case 0:
+      if (lockInputHover) break;
+      cadastroFundo.style.backgroundPosition = '0% -25%'
+      cadastroImagem.style.backgroundPosition = 'center 20%'
+      break;
+    case 1:
+      if (lockInputHover) break;
+      cadastroFundo.style.backgroundPosition = '0% -50%'
+      cadastroImagem.style.backgroundPosition = 'center 30%'
+      break;
+    case 2:
+      if (lockInputHover) break;
+      cadastroFundo.style.backgroundPosition = '0% -75%'
+      cadastroImagem.style.backgroundPosition = 'center 40%'
+      break;
+    case 3:
+      if (lockInputHover) break;
+      cadastroFundo.style.backgroundPosition = '0% -100%'
+      cadastroImagem.style.backgroundPosition = 'center 50%'
+      break;
+    // default:
+    //   cadastroFundo.style.backgroundPosition = '0% 0%'
+    //   cadastroImagem.style.backgroundPosition = 'center 10%'
+    //   break;
+  }
 
   return (
     <div className={styles.background}>
@@ -111,7 +147,7 @@ export const App = () => {
 
         <div className={styles.loginItens} id='loginItens'>
           <input className={styles.input} type='email' placeholder='Email'/>
-          <input className={styles.input} type='password' id='senhaLogin' placeholder='Senha'></input>
+          <input className={styles.input} type='password' id='senhaLogin' placeholder='Senha'/>
           {senhaOnOff === 0 
           ? <FiEyeOff className={styles.eyeIcon} onClick={showPassword}/>
           : <FiEye className={styles.eyeIcon} onClick={showPassword}/>}
@@ -122,7 +158,7 @@ export const App = () => {
           <div className={styles.decoration}/>
         </div>
 
-        <div className={styles.loginButtonDiv}>
+        <div className={styles.loginButtonDiv} id='loginButtonDiv'>
           <button className={styles.loginButton}>Entrar</button>
         </div>
 
@@ -148,7 +184,7 @@ export const App = () => {
           </div>
         </div>
 
-        <div className={styles.cadastroButtonDiv}>
+        <div className={styles.cadastroButtonDiv} id='cadastroButtonDiv'>
           <div className={styles.linkDiv}>
             <p className={styles.cadastroLink} id='cadastroLink' onClick={changePageLogin}>Já possuo uma conta.</p>
             <div className={styles.decoration}/>
