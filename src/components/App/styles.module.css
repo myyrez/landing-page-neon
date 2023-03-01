@@ -96,6 +96,12 @@ body {
     transition: 700ms;
 }
 
+.loginItensWrap {
+    display: flex;
+    width: 100%;
+    justify-content: left;
+}
+
 .cadastroDiv {
     display: flex;
     align-items: center;
@@ -139,7 +145,8 @@ body {
     opacity: 1;
     transition: 700ms;
     display: flex;
-    align-items: center;
+    align-items: left;
+    flex-direction: column;
 }
 
 .loginButton {
@@ -152,6 +159,7 @@ body {
     width: 7rem;
     height: 4rem;
     padding: 1rem;
+    margin-top: 2rem;
     transition: 700ms;
 }
 
@@ -221,12 +229,12 @@ body {
     opacity: 1;
 }
 
-.loginItens:hover ~ .loginImagem {
+.loginItensWrap:hover ~ .loginImagem {
     background-size: 190vmax;
     opacity: .2;
 }
 
-.loginItens:hover ~ .loginFundo {
+.loginItensWrap:hover ~ .loginFundo {
     background-size: 11.5vmin 11.5vmin;
 }
 
@@ -390,19 +398,105 @@ body {
 }
 
 @media screen and (max-width: 560px) {
-    .cadastroItensWrap {
-        justify-content: left;
+    .login {
+        justify-content: start;
+        align-items: center;
     }
-    
-    .cadastroItens {
-        margin-left: 25%;
+
+    .loginItensWrap {
+        justify-content: center;
+        flex-grow: .5;
+        margin-left: -18rem;
+    }
+
+    .loginItens {
+        /* margin-inline: 20%; */
+        justify-content: center;
+    }
+
+    .cadastroDiv {
+        width: fit-content;
+        margin: 0;
+    }
+
+    .loginButtonDiv {
+        /* width: 100%; */
+        align-items: center;
+        margin: 0;
+        justify-content: center;
+    }
+
+    .loginButton {
+        margin: 0;
+        margin-top: 1rem;
+    }
+
+    .eyeIcon {
+        top: -2.4rem;
+    }
+
+
+    /* -- cadastro -- */
+
+
+    .cadastro {
+        justify-content: start;
+        gap: 4rem;
+    }
+
+    .cadastroItensWrap {
+        justify-content: center;
+    }
+
+    .cadastroInput {
+        margin-inline: 2.4rem;
     }
 
     .cadastroButtonDiv {
-        flex-direction: column-reverse;
+        flex-direction: column;
         margin: 0;
     }
     .cadastroButton {
-        margin-bottom: 1rem;
+        margin-top: 1rem;
+        margin-left: 0%;
+    }
+
+    .eyeIconCadastro {
+        left: 16rem
     }
 } 
+
+@media screen and (max-width: 330px) {
+    .input {
+        width: 13rem;
+    }
+
+    .loginItensWrap {
+        margin-left: -13rem;
+    }
+
+    .eyeIcon {
+        left: 11rem;
+    }
+
+
+    /* -- cadastro -- */
+
+
+    .cadastroItensWrap {
+        margin-right: -2rem;
+    }
+
+    .cadastroInput {
+        width: 13rem;
+        margin-left: 4rem;
+    }
+
+    .cadastroButton {
+        width: 13rem;
+    }
+
+    .eyeIconCadastro {
+        left: 15rem;
+    }
+}

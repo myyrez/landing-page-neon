@@ -104,10 +104,6 @@ export const App = () => {
       loginFundo.style.backgroundPosition = '0% -50%'
       loginImagem.style.backgroundPosition = 'center 30%'
       break;
-    // default:
-    //   loginFundo.style.backgroundPosition = '0% 0%'
-    //   loginImagem.style.backgroundPosition = 'center 10%'
-    //   break;
   }
 
   switch (cadastroIndex) {
@@ -131,10 +127,6 @@ export const App = () => {
       cadastroFundo.style.backgroundPosition = '0% -100%'
       cadastroImagem.style.backgroundPosition = 'center 50%'
       break;
-    // default:
-    //   cadastroFundo.style.backgroundPosition = '0% 0%'
-    //   cadastroImagem.style.backgroundPosition = 'center 10%'
-    //   break;
   }
 
   return (
@@ -145,20 +137,22 @@ export const App = () => {
           <h1 className={styles.header}>Mirror.</h1>
         </div>
 
-        <div className={styles.loginItens} id='loginItens'>
-          <input className={styles.input} type='email' placeholder='Email'/>
-          <input className={styles.input} type='password' id='senhaLogin' placeholder='Senha'/>
-          {senhaOnOff === 0 
-          ? <FiEyeOff className={styles.eyeIcon} onClick={showPassword}/>
-          : <FiEye className={styles.eyeIcon} onClick={showPassword}/>}
+        <div className={styles.loginItensWrap}>
+          <div className={styles.loginItens} id='loginItens'>
+            <input className={styles.input} type='email' placeholder='Email'/>
+            <input className={styles.input} type='password' id='senhaLogin' placeholder='Senha'/>
+            {senhaOnOff === 0 
+            ? <FiEyeOff className={styles.eyeIcon} onClick={showPassword}/>
+            : <FiEye className={styles.eyeIcon} onClick={showPassword}/>}
+          </div>
         </div>
 
-        <div className={styles.cadastroDiv}>
-          <p className={styles.cadastroLink} id='loginLink' onClick={changePageCadastro}>Não possui conta? Cadastre-se aqui.</p>
-          <div className={styles.decoration}/>
-        </div>
 
         <div className={styles.loginButtonDiv} id='loginButtonDiv'>
+          <div className={styles.cadastroDiv}>
+            <p className={styles.cadastroLink} id='loginLink' onClick={changePageCadastro}>Não possui conta? Cadastre-se aqui.</p>
+            <div className={styles.decoration}/>
+          </div>
           <button className={styles.loginButton}>Entrar</button>
         </div>
 
