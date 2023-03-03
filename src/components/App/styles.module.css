@@ -102,6 +102,15 @@ body {
     justify-content: left;
 }
 
+.senhaEmailIncorretos {
+    color: rgb(255, 129, 129);
+    position: relative;
+    top: -2rem;
+    left: 10%;
+    transition: 700ms;
+    opacity: 0;
+}
+
 .cadastroDiv {
     display: flex;
     align-items: center;
@@ -332,6 +341,38 @@ body {
     transition: 500ms;
 }
 
+.senhaCheck {
+    display: flex;
+    justify-content: right;
+    height: .5rem;
+    width: 100%;
+    left: 10%;
+    margin-left: 16rem;
+    top: 66.5%;
+    position: absolute;
+    z-index: -1;
+    opacity: 1;
+    transition: 700ms;
+}
+
+.senhaBar {
+    height: .4rem;
+    width: 16rem;
+    border-radius: 0 0 .2rem .2rem;
+    background-color: rgb(255, 169, 169);
+    position: absolute;
+    transition: 700ms;
+}
+
+.senhaBarPreencher {
+    height: .4rem;
+    width: 13rem;
+    border-radius: 0 0 .2rem .2rem;
+    background-color: #424242;
+    position: absolute;
+    transition: 700ms;
+}
+
 .cadastroButtonDiv {
     display: flex;
     justify-content: right;
@@ -379,6 +420,10 @@ body {
     box-shadow: 0 0px 5px rgba(0, 0, 0, 0.075) inset, 0 0 19px rgba(0, 0, 0, 0.6);
 }
 
+.cadastroItens:hover > .senhaCheck {
+    
+}
+
 .cadastroItens:hover > .cadastroInput {
     opacity: 0.3;
 }
@@ -407,6 +452,12 @@ body {
         justify-content: center;
         flex-grow: .5;
         margin-left: -18rem;
+    }
+
+    .senhaEmailIncorretos {
+        display: flex;
+        left: 0;
+        top: -10%;
     }
 
     .loginItens {
@@ -450,6 +501,26 @@ body {
 
     .cadastroInput {
         margin-inline: 2.4rem;
+    }
+
+    /* margin talvez cause problema de centralização */
+
+    .senhaCheck {
+        justify-content: center;
+        margin-left: 10.25rem;
+        top: 85%;
+    }
+
+    .senhaBar {
+        top: -2.95rem;
+        margin-right: 0;
+        margin-left: .3rem;
+    }
+
+    .senhaBarPreencher {
+        top: -2.95rem;
+        margin-right: 0;
+        margin-left: .3rem;
     }
 
     .cadastroButtonDiv {

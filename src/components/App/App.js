@@ -13,6 +13,8 @@ export const App = () => {
   const loginItens = document.getElementById('loginItens')
   const cadastroItens = document.getElementById('cadastroItens')
   const loginLink = document.getElementById('loginLink')
+  const senhaErrada = document.getElementById('senhaErrada')
+  const senhaCheck = document.getElementById('senhaCheck')
 
   const senhaLogin = document.getElementById('senhaLogin')
   const senhaCadastro = document.getElementById('senhaCadastro')
@@ -67,6 +69,8 @@ export const App = () => {
       loginItens.style.opacity = '0'
       cadastroItens.style.opacity = '0'
       loginLink.style.opacity = '0'
+      senhaErrada.style.opacity = '0'
+      senhaCheck.style.opacity = '0'
 
       setTimeout(() => {
         cadastroButtonDiv.style.opacity = '1'
@@ -74,6 +78,7 @@ export const App = () => {
         loginItens.style.opacity = '1'
         cadastroItens.style.opacity = '1'
         loginLink.style.opacity = '1'
+        senhaCheck.style.opacity = '1'
         setLockInputHover(false)
       }, 3500);
     }
@@ -147,6 +152,7 @@ export const App = () => {
           </div>
         </div>
 
+        <p className={styles.senhaEmailIncorretos} id='senhaErrada'>Senha ou email incorretos.</p>
 
         <div className={styles.loginButtonDiv} id='loginButtonDiv'>
           <div className={styles.cadastroDiv}>
@@ -161,7 +167,6 @@ export const App = () => {
       </div>
 
       <div className={styles.cadastro} id='cadastro'>
-
         <div className={styles.cadastroHeaderDiv}>
           <h1 className={styles.cadastroHeader}>Mirror.</h1>
         </div>
@@ -170,13 +175,18 @@ export const App = () => {
           <div className={styles.cadastroItens} id='cadastroItens'>
             <input className={styles.cadastroInput} placeholder='Nome'/>
             <input className={styles.cadastroInput} placeholder='Email'/>
-            <input className={styles.cadastroInput} type='password' id='senhaCadastro' placeholder='Senha'/>
+            <input className={styles.cadastroInput} style={{borderRadius: '.5rem .5rem 0 0'}} type='password' id='senhaCadastro' placeholder='Senha'/>
             <input className={styles.cadastroInput} type='password' id='confirmarSenhaCadastro' placeholder='Confirmar senha'/>
             {senhaOnOff === 0 
           ? <FiEyeOff className={styles.eyeIconCadastro} onClick={showPassword}/>
           : <FiEye className={styles.eyeIconCadastro} onClick={showPassword}/>}
+        <div className={styles.senhaCheck} id='senhaCheck'>
+          <div className={styles.senhaBar}/>
+          <div className={styles.senhaBarPreencher}/>
+        </div>
           </div>
         </div>
+
 
         <div className={styles.cadastroButtonDiv} id='cadastroButtonDiv'>
           <div className={styles.linkDiv}>
