@@ -3,6 +3,14 @@ import styles from './styles.module.css';
 import { FiEyeOff, FiEye } from 'react-icons/fi'
 
 export const App = () => {
+  const emailLogin = document.getElementById('emailLogin')
+  const senhaLogin = document.getElementById('senhaLogin')
+
+  const nomeCadastro = document.getElementById('nomeCadastro')
+  const emailCadastro = document.getElementById('emailCadastro')
+  const senhaCadastro = document.getElementById('senhaCadastro')
+  const confirmarSenhaCadastro = document.getElementById('confirmarSenhaCadastro')
+
   const loginFundo = document.getElementById('loginFundo')
   const loginImagem = document.getElementById('loginImagem')
   const cadastroFundo = document.getElementById('cadastroFundo')
@@ -14,16 +22,76 @@ export const App = () => {
   const cadastroItens = document.getElementById('cadastroItens')
   const loginLink = document.getElementById('loginLink')
   const senhaErrada = document.getElementById('senhaErrada')
-  const senhaCheck = document.getElementById('senhaCheck')
+  const senhaReqs = document.getElementById('senhaReqs')
 
-  const senhaLogin = document.getElementById('senhaLogin')
-  const senhaCadastro = document.getElementById('senhaCadastro')
-  const confirmarSenhaCadastro = document.getElementById('confirmarSenhaCadastro')
+  var cadastroArray = []
 
   const [loginIndex, setLoginIndex] = useState(-1)
   const [cadastroIndex, setCadastroIndex] = useState(-1)
   const [senhaOnOff, setSenhaOnOff] = useState(0)
   const [lockInputHover, setLockInputHover] = useState(false)
+
+  const cadastrar = () => {
+    cadastroArray = JSON.parse(localStorage.getItem('cadastroObject'))
+    var cadastrarEmail = true
+
+    if (cadastroArray === null) cadastroArray = []
+
+    if (nomeCadastro.value === ''
+    || emailCadastro.value === ''
+    || senhaCadastro.value === ''
+    || confirmarSenhaCadastro.value === '') {
+      alert('preencha todos os campos.')
+      return
+    }
+
+    if (senhaCadastro.value !== confirmarSenhaCadastro.value) {
+      alert('as senhas não coincidem.')
+      return
+    }
+
+    var cadastroObject = {
+      nomeCadastro: nomeCadastro.value,
+      emailCadastro: emailCadastro.value,
+      senhaCadastro: senhaCadastro.value
+    }
+
+    for (let i = 0; i < cadastroArray.length; i++) {
+      if (emailCadastro.value === cadastroArray[i].emailCadastro) {
+        alert('email cadastrado')
+        cadastrarEmail = false
+      }
+    }
+    
+    if (cadastrarEmail) {
+      cadastroArray.push(cadastroObject)  
+      localStorage.setItem('cadastroObject', JSON.stringify(cadastroArray))
+    }
+  }
+
+  const logar = () => {
+    cadastroArray = JSON.parse(localStorage.getItem('cadastroObject'))
+    var loginEncontrado = false
+
+    if (emailLogin.value === ''
+    || senhaLogin.value === '') {
+      alert('preencha todos os campos.')
+      return
+    }
+
+    for (let i = 0; i < cadastroArray.length; i++) {
+      if (emailLogin.value === cadastroArray[i].emailCadastro
+      && senhaLogin.value === cadastroArray[i].senhaCadastro) {
+        senhaErrada.style.opacity = '0'
+        loginEncontrado = true
+      }
+    }
+
+    if (!loginEncontrado) {
+      senhaErrada.style.opacity = '1'
+      loginEncontrado = false
+    }
+  }
 
   const changePageLogin = () => {
     setTimeout(() => {
@@ -70,7 +138,7 @@ export const App = () => {
       cadastroItens.style.opacity = '0'
       loginLink.style.opacity = '0'
       senhaErrada.style.opacity = '0'
-      senhaCheck.style.opacity = '0'
+      senhaReqs.style.opacity = '0'
 
       setTimeout(() => {
         cadastroButtonDiv.style.opacity = '1'
@@ -78,7 +146,7 @@ export const App = () => {
         loginItens.style.opacity = '1'
         cadastroItens.style.opacity = '1'
         loginLink.style.opacity = '1'
-        senhaCheck.style.opacity = '1'
+        senhaReqs.style.opacity = '1'
         setLockInputHover(false)
       }, 3500);
     }
@@ -136,7 +204,7 @@ export const App = () => {
 
   return (
     <div className={styles.background}>
-
+    
       <div className={styles.login} id='login'>
         <div className={styles.headerDiv}>
           <h1 className={styles.header}>Mirror.</h1>
@@ -144,27 +212,51 @@ export const App = () => {
 
         <div className={styles.loginItensWrap}>
           <div className={styles.loginItens} id='loginItens'>
-            <input className={styles.input} type='email' placeholder='Email'/>
-            <input className={styles.input} type='password' id='senhaLogin' placeholder='Senha'/>
+            <input 
+              className={styles.input} 
+              type='email' 
+              id='emailLogin' 
+              placeholder='Email'
+            />
+            <input 
+              className={styles.input} 
+              type='password' 
+              id='senhaLogin' 
+              placeholder='Senha'
+            />
             {senhaOnOff === 0 
             ? <FiEyeOff className={styles.eyeIcon} onClick={showPassword}/>
             : <FiEye className={styles.eyeIcon} onClick={showPassword}/>}
           </div>
         </div>
 
-        <p className={styles.senhaEmailIncorretos} id='senhaErrada'>Senha ou email incorretos.</p>
+        <p 
+          className={styles.senhaEmailIncorretos} 
+          style={{opacity: '0'}}
+          id='senhaErrada'>
+            Senha ou email incorretos.
+        </p>
 
         <div className={styles.loginButtonDiv} id='loginButtonDiv'>
           <div className={styles.cadastroDiv}>
-            <p className={styles.cadastroLink} id='loginLink' onClick={changePageCadastro}>Não possui conta? Cadastre-se aqui.</p>
+            <p 
+              className={styles.cadastroLink} 
+              id='loginLink' 
+              onClick={changePageCadastro}>Não possui conta? Cadastre-se aqui.
+            </p>
             <div className={styles.decoration}/>
           </div>
-          <button className={styles.loginButton}>Entrar</button>
+          <button 
+            className={styles.loginButton}
+            onClick={logar}>Entrar
+          </button>
         </div>
 
         <div className={styles.loginFundo} id='loginFundo'/>
         <div className={styles.loginImagem} id='loginImagem'/>
       </div>
+
+      {/* divisão de telas */}
 
       <div className={styles.cadastro} id='cadastro'>
         <div className={styles.cadastroHeaderDiv}>
@@ -173,27 +265,61 @@ export const App = () => {
 
         <div className={styles.cadastroItensWrap}>
           <div className={styles.cadastroItens} id='cadastroItens'>
-            <input className={styles.cadastroInput} placeholder='Nome'/>
-            <input className={styles.cadastroInput} placeholder='Email'/>
-            <input className={styles.cadastroInput} style={{borderRadius: '.5rem .5rem 0 0'}} type='password' id='senhaCadastro' placeholder='Senha'/>
-            <input className={styles.cadastroInput} type='password' id='confirmarSenhaCadastro' placeholder='Confirmar senha'/>
+            <input 
+              className={styles.cadastroInput} 
+              id='nomeCadastro'
+              placeholder='Nome'
+            />
+            <input 
+              className={styles.cadastroInput}
+              id='emailCadastro'
+              placeholder='Email'
+            />
+            <input 
+              className={styles.cadastroInput} 
+              type='password' 
+              id='senhaCadastro' 
+              placeholder='Senha'
+            />
+            <input 
+              className={styles.cadastroInput} 
+              type='password' 
+              id='confirmarSenhaCadastro' 
+              placeholder='Confirmar senha'
+            />
+
             {senhaOnOff === 0 
-          ? <FiEyeOff className={styles.eyeIconCadastro} onClick={showPassword}/>
-          : <FiEye className={styles.eyeIconCadastro} onClick={showPassword}/>}
-        <div className={styles.senhaCheck} id='senhaCheck'>
-          <div className={styles.senhaBar}/>
-          <div className={styles.senhaBarPreencher}/>
-        </div>
+            ? <FiEyeOff className={styles.eyeIconCadastro} onClick={showPassword}/>
+            : <FiEye className={styles.eyeIconCadastro} onClick={showPassword}/>}
+
+            {/* <div className={styles.senhaCheck} id='senhaCheck'>
+              <div className={styles.senhaBar}/>
+              <div className={styles.senhaBarPreencher}/>
+            </div> */}
           </div>
         </div>
 
+        <div className={styles.senhaRequirements} id='senhaReqs'>
+          <p id='contemCaracter' className={styles.senhaReqsText}>8 ou mais caracteres.</p>
+          <p id='contemMaiusculo' className={styles.senhaReqsText}>Letra maiúscula.</p>
+          <p id='contemSimbolo' className={styles.senhaReqsText}>Símbolo.</p>
+          <p id='contemNumero' className={styles.senhaReqsText}>Número.</p>
+        </div>
 
         <div className={styles.cadastroButtonDiv} id='cadastroButtonDiv'>
           <div className={styles.linkDiv}>
-            <p className={styles.cadastroLink} id='cadastroLink' onClick={changePageLogin}>Já possuo uma conta.</p>
+            <p 
+              className={styles.cadastroLink} 
+              id='cadastroLink' 
+              onClick={changePageLogin}>Já possuo uma conta.
+              </p>
             <div className={styles.decoration}/>
           </div>
-          <button className={styles.cadastroButton}>Cadastrar</button>
+
+          <button 
+            className={styles.cadastroButton}
+            onClick={cadastrar}>Cadastrar
+            </button>
         </div>
 
         <div className={styles.cadastroFundo} id='cadastroFundo'/>

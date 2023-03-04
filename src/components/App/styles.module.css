@@ -51,7 +51,7 @@ body {
     width: 100%;
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
+    justify-content: center;
     gap: 1rem;
 }
 
@@ -66,6 +66,8 @@ body {
     margin-block: 2rem;
     color: #fff;
     font-size: clamp(3rem, 8vw, 8rem);
+    position: absolute;
+    top: 0%;
 }
 
 .loginFundo {
@@ -254,7 +256,7 @@ body {
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: right;
+    justify-content: center;
     gap: 1rem;
 }
 
@@ -270,6 +272,8 @@ body {
     color: #fff;
     font-size: clamp(3rem, 8vw, 8rem);
     transform: scaleX(-1);
+    position: absolute;
+    top: 0%;
 }
 
 .cadastroFundo {
@@ -341,36 +345,21 @@ body {
     transition: 500ms;
 }
 
-.senhaCheck {
+.senhaRequirements {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    color: rgb(255, 169, 169);
+    font-size: clamp(1rem, 2vw, 2rem);
+    margin-bottom: 1rem;
+    z-index: 2;
+    transition: 700ms;
+}
+
+.senhaReqsText {
     display: flex;
     justify-content: right;
-    height: .5rem;
-    width: 100%;
-    left: 10%;
-    margin-left: 16rem;
-    top: 66.5%;
-    position: absolute;
-    z-index: -1;
-    opacity: 1;
-    transition: 700ms;
-}
-
-.senhaBar {
-    height: .4rem;
-    width: 16rem;
-    border-radius: 0 0 .2rem .2rem;
-    background-color: rgb(255, 169, 169);
-    position: absolute;
-    transition: 700ms;
-}
-
-.senhaBarPreencher {
-    height: .4rem;
-    width: 13rem;
-    border-radius: 0 0 .2rem .2rem;
-    background-color: #424242;
-    position: absolute;
-    transition: 700ms;
+    margin-right: 4.5rem;
 }
 
 .cadastroButtonDiv {
@@ -420,10 +409,6 @@ body {
     box-shadow: 0 0px 5px rgba(0, 0, 0, 0.075) inset, 0 0 19px rgba(0, 0, 0, 0.6);
 }
 
-.cadastroItens:hover > .senhaCheck {
-    
-}
-
 .cadastroItens:hover > .cadastroInput {
     opacity: 0.3;
 }
@@ -444,7 +429,7 @@ body {
 
 @media screen and (max-width: 560px) {
     .login {
-        justify-content: start;
+        justify-content: center;
         align-items: center;
     }
 
@@ -491,8 +476,8 @@ body {
 
 
     .cadastro {
-        justify-content: start;
-        gap: 4rem;
+        justify-content: center;
+        /* gap: 4rem; */
     }
 
     .cadastroItensWrap {
@@ -501,6 +486,16 @@ body {
 
     .cadastroInput {
         margin-inline: 2.4rem;
+    }
+
+    .senhaRequirements {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .senhaReqsText {
+        margin-right: 0;
     }
 
     /* margin talvez cause problema de centralização */
