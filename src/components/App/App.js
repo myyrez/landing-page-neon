@@ -31,6 +31,34 @@ export const App = () => {
   const [senhaOnOff, setSenhaOnOff] = useState(0)
   const [lockInputHover, setLockInputHover] = useState(false)
 
+  const [caracteres, setCaracteres] = useState(false)
+  const [numero, setNumero] = useState(false)
+  const [maiusculo, setMaiusculo] = useState(false)
+  const [simbolo, setSimbolo] = useState(false)
+
+  const handleNumeros = (string) => {
+    let match = string.match(/\d+/g)
+    setNumero(match != null ? true : false)
+  }
+
+  const handleMaiusculo = (string) => {
+    let match = string.match(/[A-Z]/)
+    setMaiusculo(match != null ? true : false)
+  }
+
+  const handleSimbolo = (string) => {
+    let simbolo = new RegExp(/[^A-Z a-z0-9]/)
+    setSimbolo(simbolo.test(string) ? true : false)
+  }
+
+  const onChange = e => {
+    let targetValue = e.target.value
+    handleNumeros(targetValue)
+    handleMaiusculo(targetValue)
+    handleSimbolo(targetValue)
+    setCaracteres(targetValue.length > 7 ? true : false)
+  }
+
   const cadastrar = () => {
     cadastroArray = JSON.parse(localStorage.getItem('cadastroObject'))
     var cadastrarEmail = true
@@ -47,6 +75,11 @@ export const App = () => {
 
     if (senhaCadastro.value !== confirmarSenhaCadastro.value) {
       alert('as senhas não coincidem.')
+      return
+    }
+
+    if (!caracteres || !numero || !simbolo || !maiusculo) {
+      alert('A senha não apresenta os requisitos.')
       return
     }
 
@@ -280,6 +313,7 @@ export const App = () => {
               type='password' 
               id='senhaCadastro' 
               placeholder='Senha'
+              onChange={onChange}
             />
             <input 
               className={styles.cadastroInput} 
@@ -291,19 +325,22 @@ export const App = () => {
             {senhaOnOff === 0 
             ? <FiEyeOff className={styles.eyeIconCadastro} onClick={showPassword}/>
             : <FiEye className={styles.eyeIconCadastro} onClick={showPassword}/>}
-
-            {/* <div className={styles.senhaCheck} id='senhaCheck'>
-              <div className={styles.senhaBar}/>
-              <div className={styles.senhaBarPreencher}/>
-            </div> */}
           </div>
         </div>
 
         <div className={styles.senhaRequirements} id='senhaReqs'>
-          <p id='contemCaracter' className={styles.senhaReqsText}>8 ou mais caracteres.</p>
-          <p id='contemMaiusculo' className={styles.senhaReqsText}>Letra maiúscula.</p>
-          <p id='contemSimbolo' className={styles.senhaReqsText}>Símbolo.</p>
-          <p id='contemNumero' className={styles.senhaReqsText}>Número.</p>
+          <p 
+            id='contemCaracter' 
+            className={caracteres ? styles.whiteText : styles.redText}>8 ou mais caracteres.</p>
+          <p 
+            id='contemMaiusculo' 
+            className={maiusculo ? styles.whiteText : styles.redText}>Letra maiúscula.</p>
+          <p 
+            id='contemSimbolo' 
+            className={simbolo ? styles.whiteText : styles.redText}>Símbolo.</p>
+          <p 
+            id='contemNumero' 
+            className={numero ? styles.whiteText : styles.redText}>Número.</p>
         </div>
 
         <div className={styles.cadastroButtonDiv} id='cadastroButtonDiv'>
