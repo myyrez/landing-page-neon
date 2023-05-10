@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styles from './styles.module.css';
+import { Modal } from '../Modal/Modal';
 import { FiEyeOff, FiEye } from 'react-icons/fi'
 
 export const App = () => {
@@ -99,6 +100,8 @@ export const App = () => {
     if (cadastrarEmail) {
       cadastroArray.push(cadastroObject)  
       localStorage.setItem('cadastroObject', JSON.stringify(cadastroArray))
+
+      changePageLogin()
     }
   }
 
@@ -117,6 +120,7 @@ export const App = () => {
       && senhaLogin.value === cadastroArray[i].senhaCadastro) {
         senhaErrada.style.opacity = '0'
         loginEncontrado = true
+        alert('sucesso')
       }
     }
 
@@ -262,6 +266,8 @@ export const App = () => {
             : <FiEye className={styles.eyeIcon} onClick={showPassword}/>}
           </div>
         </div>
+
+        <Modal/>
 
         <p 
           className={styles.senhaEmailIncorretos} 
