@@ -106,6 +106,7 @@ body {
 
 .senhaEmailIncorretos {
     color: rgb(255, 129, 129);
+    color: rgb(255, 188, 117);
     position: relative;
     top: -2rem;
     left: 10%;
@@ -170,7 +171,6 @@ body {
     border-radius: .5rem;
     width: 7rem;
     height: 4rem;
-    padding: 1rem;
     margin-top: 2rem;
     transition: 700ms;
 }
@@ -351,6 +351,7 @@ body {
     flex-direction: column;
     width: 100%;
     color: rgb(255, 139, 139);
+    color: rgb(255, 188, 117);
     font-size: clamp(1.5rem, 2vw, 2rem);
     margin-bottom: 1rem;
     z-index: 2;
@@ -365,7 +366,7 @@ body {
 }
 
 .whiteText {
-    color: #d4f6b2;
+    color: #c6fc90;
     display: flex;
     justify-content: right;
     margin-right: 4.5rem;

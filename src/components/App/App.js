@@ -4,6 +4,10 @@ import { Modal } from '../Modal/Modal';
 import { FiEyeOff, FiEye } from 'react-icons/fi'
 
 export const App = () => {
+  const [showModal, setShowModal] = useState(false)
+  const [changeModalPage, setChangeModalPage] = useState('login')
+  const [modalMessage, setModalMessage] = useState('default')
+  const [hideModal, setHideModal] = useState(false)
   const emailLogin = document.getElementById('emailLogin')
   const senhaLogin = document.getElementById('senhaLogin')
 
@@ -26,6 +30,7 @@ export const App = () => {
   const senhaReqs = document.getElementById('senhaReqs')
 
   var cadastroArray = []
+  const [showModalAgain, setShowModalAgain] = useState(true)
 
   const [loginIndex, setLoginIndex] = useState(-1)
   const [cadastroIndex, setCadastroIndex] = useState(-1)
@@ -70,17 +75,53 @@ export const App = () => {
     || emailCadastro.value === ''
     || senhaCadastro.value === ''
     || confirmarSenhaCadastro.value === '') {
-      alert('preencha todos os campos.')
+      if(showModalAgain) {
+        setShowModalAgain(false)
+
+        setModalMessage('Preencha todos os campos.')
+        setShowModal(true)
+        setTimeout(() => {
+          setShowModal(false)
+        }, 5000);
+
+        setTimeout(() => {
+          setShowModalAgain(true)
+        }, 6000);
+      }
       return
     }
 
     if (senhaCadastro.value !== confirmarSenhaCadastro.value) {
-      alert('as senhas não coincidem.')
+      if(showModalAgain) {
+        setShowModalAgain(false)
+
+        setModalMessage('as senhas não coincidem.')
+        setShowModal(true)
+        setTimeout(() => {
+          setShowModal(false)
+        }, 5000);
+
+        setTimeout(() => {
+          setShowModalAgain(true)
+        }, 6000);
+      }
       return
     }
 
     if (!caracteres || !numero || !simbolo || !maiusculo) {
-      alert('A senha não apresenta os requisitos.')
+      if(showModalAgain) {
+        setShowModalAgain(false)
+        
+        setModalMessage('A senha não apresenta os requisitos.')
+        setShowModal(true)
+        setTimeout(() => {
+          setShowModal(false)
+        }, 5000);
+
+        setTimeout(() => {
+          setShowModalAgain(true)
+        }, 6000);
+      }
       return
     }
 
@@ -92,7 +133,19 @@ export const App = () => {
 
     for (let i = 0; i < cadastroArray.length; i++) {
       if (emailCadastro.value === cadastroArray[i].emailCadastro) {
-        alert('email cadastrado')
+        if(showModalAgain) {
+          setShowModalAgain(false)
+          
+          setModalMessage('Email já cadastrado.')
+          setShowModal(true)
+          setTimeout(() => {
+            setShowModal(false)
+          }, 5000);
+  
+          setTimeout(() => {
+            setShowModalAgain(true)
+          }, 6000);
+        }
         cadastrarEmail = false
       }
     }
@@ -111,8 +164,25 @@ export const App = () => {
 
     if (emailLogin.value === ''
     || senhaLogin.value === '') {
-      alert('preencha todos os campos.')
+      if(showModalAgain) {
+        setShowModalAgain(false)
+        
+        setModalMessage('preencha todos os campos.')
+        setShowModal(true)
+        setTimeout(() => {
+          setShowModal(false)
+        }, 5000);
+
+        setTimeout(() => {
+          setShowModalAgain(true)
+        }, 6000);
+      }
       return
+    }
+    
+    if (cadastroArray == null) {
+      senhaErrada.style.opacity = '1'
+      loginEncontrado = false
     }
 
     for (let i = 0; i < cadastroArray.length; i++) {
@@ -135,6 +205,10 @@ export const App = () => {
       document.body.style.transform = 'translateX(0vw)'
     }, 500);
 
+    setShowModal(false)
+    setTimeout(() => {
+      setChangeModalPage('login')
+    }, 1000);
     setLockInputHover(true)
   }
   const changePageCadastro = () => {
@@ -142,6 +216,10 @@ export const App = () => {
       document.body.style.transform = 'translateX(-100vw)'
     }, 500);
 
+    setShowModal(false)
+    setTimeout(() => {
+      setChangeModalPage('cadastro')
+    }, 1000);
     setLockInputHover(true)
   }
 
@@ -267,7 +345,13 @@ export const App = () => {
           </div>
         </div>
 
-        <Modal/>
+        <Modal
+          changeModalPage={changeModalPage}
+          showModal={showModal}
+          modalMessage={modalMessage}
+          showModalAgain={showModalAgain}
+          hideModal={hideModal}
+        />
 
         <p 
           className={styles.senhaEmailIncorretos} 

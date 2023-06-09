@@ -2,29 +2,31 @@
     left: 0;
     top: 0;
     position: absolute;
-    margin-top: 2rem;
+    margin-top: -10rem;
     height: 6rem;
     width: 100%;
-    z-index: 2;
+    z-index: 4;
     transform: translateX(0vw);
     transition: 1s;
 }
 
 .modalContainer {
-    background-color: #212121;
+    background-color: #151515;
     display: flex;
     margin: auto;
     border-radius: 5px;
     width: 22rem;
     height: 100%;
     align-items: center;
+    text-align: center;
     justify-content: flex-end;
     flex-direction: column;
     
 }
 
 .modalMessage {
-    color: #fff;
+    color: rgb(255, 139, 139);
+    color: rgb(255, 199, 139);
     margin: auto;
     font-size: clamp(1.5rem, 2vw, 2rem);
 }
