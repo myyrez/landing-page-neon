@@ -36,17 +36,17 @@
 }
 
 .navbar {
-    height: 15vh;
+    height: 15%;
     width: 100%;
-    background-color: red;
+    background-color: #1c1c1ce3;
 }
 
 .banner {
-    height: 50vh;
+    height: 85%;
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: start;
     flex-direction: column;
     z-index: 1;
     color: #fff;
@@ -54,10 +54,169 @@
 }
 
 .title {
+    margin-top: 2rem;
     font-size: clamp(5rem, 8vw, 8rem);
     transform: scaleX(-1);
 }
 
 .subTitle {
     font-size: clamp(1.4rem, 1vw, 1rem);
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.imagesContainerWrapper {
+    display: flex;
+    justify-content: center;
+    gap: 5rem;
+}
+
+.imagesContainer {
+    /* height: 10%; */
+    width: 40%;
+    display: flex;
+    flex-direction: row;
+}
+
+.img1 {
+    height: 200px;
+    box-shadow: 0 0px 5px rgba(255, 255, 255, 0.075) inset, 0 0 19px rgba(255, 255, 255, 0.283);
+}
+
+.img2 {
+    height: 300px;
+    box-shadow: 0 0px 5px rgba(255, 255, 255, 0.075) inset, 0 0 19px rgba(255, 255, 255, 0.283);
+}
+
+.textBox {
+    background-color: #48484810;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    gap: 2rem;
+    border-style: solid;
+    border-color: #aeaeae42;
+    border-width: 1px 1px 1px 0px;
+}
+
+.img1Text {
+    width: 95%;
+}
+
+.img2Text {
+    width: 95%;
+    font-size: clamp(1.4rem, 1vw, 1rem);
+}
+
+.joinButton {
+    position: relative;
+    width: 90%;
+    font-size: clamp(1.3rem, 1vw, 1rem);
+    background-color: rgba(182, 119, 67, 0.171);
+    color: rgb(234, 168, 114);
+    padding: .2rem;
+    border: none;
+    font-weight: 500;
+    transition: 200ms ease;
+}
+
+.joinButton:hover {
+    cursor: pointer;
+    background-color: rgba(100, 65, 37, 0.171);
+}
+
+.watchButton {
+    position: relative;
+    background-color: rgba(125, 253, 223, 0.185);
+    height: 6rem;
+    width: 6rem;
+    box-sizing: border-box;
+    clip-path: polygon(50% 0%,75% 6.7%,93.3% 25%,100% 50%,93.3% 75%,75% 93.3%,50% 100%,25% 93.3%,6.7% 75%,0% 50%,6.7% 25%,25% 6.7%,50% 0%);
+    backdrop-filter: blur(1rem);
+    transition: 200ms;
+}
+
+.watchButton:hover {
+    cursor: pointer;
+    background-color: rgba(61, 255, 210, 0.185);
+}
+
+.polygon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: x-large;
+    position: absolute;
+    top: .1rem;
+    left: .1rem;
+    width: 5.8rem;
+    height: 5.8rem;
+    clip-path: polygon(50% 0%,75% 6.7%,93.3% 25%,100% 50%,93.3% 75%,75% 93.3%,50% 100%,25% 93.3%,6.7% 75%,0% 50%,6.7% 25%,25% 6.7%,50% 0%);
+    background-color: rgba(0, 0, 0, 0.295);
+    z-index: -1;
+}
+
+.buttonBorder {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0rem;
+    left: 0rem;
+}
+
+.topLeft {
+    position: absolute;
+    top: 0rem;
+    left: 0rem;
+    height: .3rem;
+    width: .3rem;
+    border-color: rgb(234, 168, 114);
+    border-style: solid;
+    border-left-width: 1px;
+    border-top-width: 1px;
+    border-right-width: 0px;
+    border-bottom-width: 0px;
+}
+
+.topRight {
+    position: absolute;
+    top: 0rem;
+    right: 0rem;
+    height: .3rem;
+    width: .3rem;
+    border-color: rgb(234, 168, 114);
+    border-style: solid;
+    border-left-width: 0px;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 0px;
+}
+.bottomLeft {
+    position: absolute;
+    bottom: 0rem;
+    left: 0rem;
+    height: .3rem;
+    width: .3rem;
+    border-color: rgb(234, 168, 114);
+    border-style: solid;
+    border-left-width: 1px;
+    border-top-width: 0px;
+    border-right-width: 0px;
+    border-bottom-width: 1px;
+}
+.bottomRight {
+    position: absolute;
+    bottom: 0rem;
+    right: 0rem;
+    height: .3rem;
+    width: .3rem;
+    border-color: rgb(234, 168, 114);
+    border-style: solid;
+    border-left-width: 0px;
+    border-top-width: 0px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
 }
