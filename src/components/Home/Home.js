@@ -3,19 +3,20 @@ import styles from './styles.module.css';
 import video from '../../assets/images/mirrorVideo.mp4'
 import astronaut from '../../assets/images/astronaut2.jpg'
 import spaceStation from '../../assets/images/spaceStation.jpg'
+import futuristicBackground from '../../assets/images/futuristicBackground3.jpg'
 import { ImPlay3 } from 'react-icons/im'
+import { BsChevronCompactDown } from 'react-icons/bs'
 
 export const Home = () => {
     return (
         <div className={styles.mainContainer}>
+
             <video className={styles.videoBG} src={video} autoPlay muted loop playsInline/>
 
             <div className={styles.subContainer}>
-                <div className={styles.navbar}>
-
-                </div>
                 <div className={styles.banner}>
-                    <div>
+                    <div className={styles.navbar}></div>
+                    <div className={styles.titleWrap}>
                         <h1 className={styles.title}>Mirror.</h1>
                         <p className={styles.subTitle}>Experiencie o outro lado.</p>
                     </div>
@@ -35,6 +36,7 @@ export const Home = () => {
                                 </a>
                             </div>
                         </div>
+                        <div className={styles.chevron}><BsChevronCompactDown/></div>
                         <div className={styles.imagesContainer}>
                             <img className={styles.img1} src={spaceStation}></img>
                             <div className={styles.textBox}>
@@ -46,6 +48,33 @@ export const Home = () => {
                         </div>
                     </div>
                 </div>
+            </div>
+            <div className={styles.pageScroll}>
+                <img className={styles.img2} src={futuristicBackground}></img>
+                <div className={styles.infoCard}>
+                    <div className={styles.infoCardFrame}>
+                        <span className={styles.topLeftCard}></span>
+                        <span className={styles.topRightCard}></span>
+                        <span className={styles.bottomLeftCard}></span>
+                        <span className={styles.bottomRightCard}></span>
+                        <h1 className={styles.teste}>Placeholder</h1>
+                        <p className={styles.teste}>oi</p>
+                        <p className={styles.teste}>oi</p>
+                        <p className={styles.teste}>oi</p>
+                    </div>
+                </div>
+                <p className={styles.teste}>oi</p>
+                <p className={styles.teste}>oi</p>
+                <p className={styles.teste}>oi</p>
+                <p className={styles.teste}>oi</p>
+                <p className={styles.teste}>oi</p>
+                <p className={styles.teste}>oi</p>
+                <p className={styles.teste}>oi</p>
+                <p className={styles.teste}>oi</p>
+                <p className={styles.teste}>oi</p>
+                <p className={styles.teste}>oi</p>
+                <p className={styles.teste}>oi</p>
+                <p className={styles.teste}>oi</p>
             </div>
         </div>
     )

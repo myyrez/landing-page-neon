@@ -1,56 +1,67 @@
 * {
     margin: 0;
     padding: 0;
-
+    box-sizing: border-box;
 }
 
 .mainContainer {
     background-color: #212121;
     height: 100vh;
-    width: 100%;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    padding: 0 5%;
+    justify-content: start;
+    overflow-y: scroll;
 }
 
 .videoBG {
     position: absolute;
-    height: 100%;
-    width: 100%;
+    height: 100vh;
+    width: 98.8%;
     object-fit: cover;
     opacity: 50%;
+    overflow-x: hidden;
 }
 
 .subContainer {
+    position: relative;
     display: flex;
-    border-style: solid;
+    /* border-style: solid;
     border-color: #aeaeae;
-    border-width: 0px 1px;
+    border-width: 0px 1px; */
     justify-content: start;
     align-items: center;
     flex-direction: column;
     margin: 0;
-    height: 100%;
-    width: 99%;
+    height: auto;
+    width: 100%;
+    z-index: 2;
 }
 
 .navbar {
-    height: 15%;
-    width: 100%;
-    background-color: #1c1c1ce3;
+    position: fixed;
+    top: 0px;
+    min-height: 15vh;
+    width: 98.8%;
+    background-color: #15151596;;
+    z-index: 4;
 }
 
 .banner {
-    height: 85%;
+    height: 100vh;
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: start;
+    justify-content: space-around;
     flex-direction: column;
     z-index: 1;
     color: #fff;
     gap: 1rem;
+}
+
+.titleWrap {
+    margin-block-start: 15vh;
+    height: auto;
 }
 
 .title {
@@ -69,13 +80,27 @@
     display: flex;
     justify-content: center;
     gap: 5rem;
+    margin-block-end: 4rem;
+    height: auto;
 }
 
 .imagesContainer {
-    /* height: 10%; */
+    height: 200px;
     width: 40%;
     display: flex;
     flex-direction: row;
+}
+
+.chevron {
+    position: absolute;
+    bottom: 0;
+    height: 3rem;
+    width: 3rem;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: xx-large;
 }
 
 .img1 {
@@ -84,8 +109,8 @@
 }
 
 .img2 {
-    height: 300px;
-    box-shadow: 0 0px 5px rgba(255, 255, 255, 0.075) inset, 0 0 19px rgba(255, 255, 255, 0.283);
+    height: 500px;
+    margin-block-start: 4rem;
 }
 
 .textBox {
@@ -141,7 +166,7 @@
 
 .watchButton:hover {
     cursor: pointer;
-    background-color: rgba(61, 255, 210, 0.185);
+    background-color: rgba(30, 135, 110, 0.185);
 }
 
 .polygon {
@@ -219,4 +244,103 @@
     border-top-width: 0px;
     border-right-width: 1px;
     border-bottom-width: 1px;
+}
+
+.topLeftCard {
+    position: absolute;
+    top: 0rem;
+    left: 0rem;
+    height: .6rem;
+    width: .6rem;
+    border-color: rgb(255, 255, 255);
+    border-style: solid;
+    border-left-width: 1px;
+    border-top-width: 1px;
+    border-right-width: 0px;
+    border-bottom-width: 0px;
+}
+.topRightCard {
+    position: absolute;
+    top: 0rem;
+    right: 0rem;
+    height: .6rem;
+    width: .6rem;
+    border-color: rgb(255, 255, 255);
+    border-style: solid;
+    border-left-width: 0px;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 0px;
+}
+.bottomLeftCard {
+    position: absolute;
+    bottom: 0rem;
+    left: 0rem;
+    height: .6rem;
+    width: .6rem;
+    border-color: rgb(255, 255, 255);
+    border-style: solid;
+    border-left-width: 1px;
+    border-top-width: 0px;
+    border-right-width: 0px;
+    border-bottom-width: 1px;
+}
+.bottomRightCard {
+    position: absolute;
+    bottom: 0rem;
+    right: 0rem;
+    height: .6rem;
+    width: .6rem;
+    border-color: rgb(255, 255, 255);
+    border-style: solid;
+    border-left-width: 0px;
+    border-top-width: 0px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+}
+
+.pageScroll {
+    position: relative;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
+    margin: 0;
+    /* box-sizing: border-box; */
+    height: auto;
+    width: 100%;
+    z-index: 0;
+    background-color: #151515;
+}
+
+.infoCard {
+    position: absolute;
+    background-color: rgba(4, 50, 51, 0.772);
+    background-color: rgba(2, 21, 21, 0.772);
+    height: auto;
+    width: 400px;
+    top: 6rem;
+    padding: .75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-inline-start: 18rem;
+    opacity: 75%;
+}
+
+.infoCardFrame {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    padding: .50rem;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    border: #d1d1d14a 1px solid;
+}
+
+.teste {
+    height: 5rem;
+    color: #fff;
 }
