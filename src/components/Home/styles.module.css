@@ -111,6 +111,7 @@
 .img2 {
     height: 500px;
     margin-block-start: 4rem;
+    margin-block-end: 4rem;
 }
 
 .textBox {
@@ -129,11 +130,13 @@
 
 .img1Text {
     width: 95%;
+    color: #fff;
 }
 
 .img2Text {
     width: 95%;
     font-size: clamp(1.4rem, 1vw, 1rem);
+    color: #fff;
 }
 
 .joinButton {
@@ -310,7 +313,7 @@
     height: auto;
     width: 100%;
     z-index: 0;
-    background-color: #151515;
+    background-color: #131212;
 }
 
 .infoCard {
@@ -338,6 +341,59 @@
     justify-content: start;
     align-items: center;
     border: #d1d1d14a 1px solid;
+}
+
+.cardsCarousel {
+    position: relative;
+    height: auto;
+    padding: 4rem;
+    width: 90%;
+    margin-block-start: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 5;
+    border: #d1d1d14a 1px solid;
+}
+
+.itemWrap {
+    /* background-color: red; */
+    display: flex;
+    width: auto;
+    height: auto;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-inline: 1rem;
+}
+
+.itemText {
+    width: 95%;
+    font-size: clamp(1.4rem, 1vw, 1rem);
+    color: #fff;
+    margin-block-start: 1rem;
+    text-align: center;
+    vertical-align:middle;
+}
+
+.itemChevron {
+    position: relative;
+    top: 5px;
+}
+
+.itemButton {
+    color:rgb(234, 168, 114);
+    font-size: clamp(1.4rem, 1vw, 1rem);
+    margin-block-start: 1rem;
+}
+
+.carouselItem {
+    background-color: #fff;
+    height: 25rem;
+    width: 17rem;
+    margin-inline: 2rem;
+    flex: none;
 }
 
 .teste {

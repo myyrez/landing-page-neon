@@ -3,8 +3,14 @@ import styles from './styles.module.css';
 import video from '../../assets/images/mirrorVideo.mp4'
 import astronaut from '../../assets/images/astronaut2.jpg'
 import spaceStation from '../../assets/images/spaceStation.jpg'
+import spaceship from '../../assets/images/spaceship.jpg'
+import galaxia from '../../assets/images/galaxia.jpg'
+import alienLifeform from '../../assets/images/alienLifeform2.jpg'
 import futuristicBackground from '../../assets/images/futuristicBackground3.jpg'
+import futuristicBackground2 from '../../assets/images/futuristicBackground5.jpg'
+import futuristicBackground3 from '../../assets/images/futuristicBackground1.jpg'
 import { ImPlay3 } from 'react-icons/im'
+import { BiChevronRight } from 'react-icons/bi'
 import { BsChevronCompactDown } from 'react-icons/bs'
 
 export const Home = () => {
@@ -26,7 +32,7 @@ export const Home = () => {
                             <div className={styles.textBox}>
                                 <p className={styles.img1Text}>Nosso programa espacial tem como objetivo viajar entre dimensões para encontrar novas formas de vida.</p>
                                 <a className={styles.joinButton}>
-                                    Junte-se a nós.
+                                    Junte-se a nós
                                     <div className={styles.buttonBorder}>
                                         <span className={styles.topLeft}></span>
                                         <span className={styles.topRight}></span>
@@ -61,6 +67,25 @@ export const Home = () => {
                         <p className={styles.teste}>oi</p>
                         <p className={styles.teste}>oi</p>
                         <p className={styles.teste}>oi</p>
+                    </div>
+                </div>
+                <div className={styles.cardsCarousel}>
+                    <span className={styles.topLeftCard}></span>
+                    <span className={styles.topRightCard}></span>
+                    <span className={styles.bottomLeftCard}></span>
+                    <span className={styles.bottomRightCard}></span>
+                    <div className={styles.itemWrap}>
+                        <img className={styles.carouselItem} src={spaceship}></img>
+                        <p className={styles.itemText}>Modelos de estações espaciais</p>
+                        <a className={styles.itemButton}>Conferir <BiChevronRight className={styles.itemChevron}/></a>
+                    </div>
+                    <div className={styles.itemWrap}>
+                        <img className={styles.carouselItem} src={futuristicBackground2}></img>
+                        <p className={styles.itemText}>Instalações em outros planetas</p>
+                    </div>
+                    <div className={styles.itemWrap}>
+                        <img className={styles.carouselItem} src={galaxia}></img>
+                        <p className={styles.itemText}>Galáxias recém-descobertas</p>
                     </div>
                 </div>
                 <p className={styles.teste}>oi</p>
