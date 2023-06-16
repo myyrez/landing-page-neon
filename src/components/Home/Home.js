@@ -56,18 +56,27 @@ export const Home = () => {
                 </div>
             </div>
             <div className={styles.pageScroll}>
-                <img className={styles.img2} src={futuristicBackground}></img>
-                <div className={styles.infoCard}>
-                    <div className={styles.infoCardFrame}>
-                        <span className={styles.topLeftCard}></span>
-                        <span className={styles.topRightCard}></span>
-                        <span className={styles.bottomLeftCard}></span>
-                        <span className={styles.bottomRightCard}></span>
-                        <h1 className={styles.teste}>Placeholder</h1>
-                        <p className={styles.teste}>oi</p>
-                        <p className={styles.teste}>oi</p>
-                        <p className={styles.teste}>oi</p>
+                <div className={styles.part1}>
+                    <div className={styles.infoCard}>
+                        <div className={styles.infoCardFrame}>
+                            <span className={styles.topLeftCard}></span>
+                            <span className={styles.topRightCard}></span>
+                            <span className={styles.bottomLeftCard}></span>
+                            <span className={styles.bottomRightCard}></span>
+                            <h1 className={styles.teste}>Placeholder</h1>
+                            <p className={styles.teste}>oi</p>
+                            <p className={styles.teste}>oi</p>
+                            <p className={styles.teste}>oi</p>
+                            <p className={styles.teste}>oi</p>
+                        </div>
                     </div>
+                    <div style={{display: 'flex', justifyContent: 'space-between', width: '100%'}}>
+                        <span className={styles.decoLines}></span>
+                        <span className={styles.decoLines} style={{transform: 'scaleX(-1)'}}></span>
+                    </div>
+                </div>
+                <div className={styles.loading}>
+                    <h1>Catálogo de formas de vida recém-descobertas</h1>
                 </div>
                 <div className={styles.cardsCarousel}>
                     <span className={styles.topLeftCard}></span>
@@ -77,29 +86,29 @@ export const Home = () => {
                     <div className={styles.itemWrap}>
                         <img className={styles.carouselItem} src={spaceship}></img>
                         <p className={styles.itemText}>Modelos de estações espaciais</p>
-                        <a className={styles.itemButton}>Conferir <BiChevronRight className={styles.itemChevron}/></a>
+                        <div style={{display: 'flex', flexDirection: 'column'}}>
+                            <a className={styles.itemButton}>Conferir <BiChevronRight className={styles.itemChevron}/></a>
+                            <span className={styles.itemLine}></span>
+                        </div>
                     </div>
                     <div className={styles.itemWrap}>
                         <img className={styles.carouselItem} src={futuristicBackground2}></img>
                         <p className={styles.itemText}>Instalações em outros planetas</p>
+                        <div style={{display: 'flex', flexDirection: 'column'}}>
+                            <a className={styles.itemButton}>Conferir <BiChevronRight className={styles.itemChevron}/></a>
+                            <span className={styles.itemLine}></span>
+                        </div>
                     </div>
                     <div className={styles.itemWrap}>
                         <img className={styles.carouselItem} src={galaxia}></img>
                         <p className={styles.itemText}>Galáxias recém-descobertas</p>
+                        <div style={{display: 'flex', flexDirection: 'column'}}>
+                            <a className={styles.itemButton}>Conferir <BiChevronRight className={styles.itemChevron}/></a>
+                            <span className={styles.itemLine}></span>
+                        </div>
                     </div>
                 </div>
-                <p className={styles.teste}>oi</p>
-                <p className={styles.teste}>oi</p>
-                <p className={styles.teste}>oi</p>
-                <p className={styles.teste}>oi</p>
-                <p className={styles.teste}>oi</p>
-                <p className={styles.teste}>oi</p>
-                <p className={styles.teste}>oi</p>
-                <p className={styles.teste}>oi</p>
-                <p className={styles.teste}>oi</p>
-                <p className={styles.teste}>oi</p>
-                <p className={styles.teste}>oi</p>
-                <p className={styles.teste}>oi</p>
+                
             </div>
         </div>
     )

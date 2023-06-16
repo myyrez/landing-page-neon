@@ -1,3 +1,7 @@
+:root {
+    --stripes-size: 57px
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -109,9 +113,13 @@
 }
 
 .img2 {
-    height: 500px;
-    margin-block-start: 4rem;
-    margin-block-end: 4rem;
+    /* height: 500px; */
+    position: absolute;
+    width: 90%;
+    /* margin-block-start: 4rem;
+    margin-block-end: 4rem; */
+    opacity: 50%;
+    box-shadow: 0 0px 5px rgba(255, 255, 255, 0.075) inset, 0 0 50px rgba(255, 255, 255, 0.1);
 }
 
 .textBox {
@@ -314,12 +322,44 @@
     width: 100%;
     z-index: 0;
     background-color: #131212;
+    
+    background-image: radial-gradient(
+        rgba(2255, 255, 255, 0.05) 5%,
+        transparent 10%
+    );
+    background-position: 0% 0%;
+    background-size: 2vmin 2vmin;
+    left: 0px;
+    top: 0px;
+    z-index: 1;
+    transition: 700ms;
+}
+
+.part1 {
+    width: 90%;
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-block-start: 4rem;
+    margin-block-end: 4rem;
+    background-image: url(../../assets/images/futuristicBackground3.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: 0 0px 5px rgba(255, 255, 255, 0.075) inset, 0 0 50px rgba(255, 255, 255, 0.1);
+}
+
+.decoLines {
+    height: 1px;
+    width: 10rem;
+    background-image: linear-gradient(90deg, #fff 10%, transparent 100%);
+    
 }
 
 .infoCard {
     position: absolute;
-    background-color: rgba(4, 50, 51, 0.772);
-    background-color: rgba(2, 21, 21, 0.772);
+    /* background-color: rgb(4, 50, 51); */
+    background-color: rgb(1, 15, 15);
     height: auto;
     width: 400px;
     top: 6rem;
@@ -328,7 +368,26 @@
     align-items: center;
     justify-content: center;
     margin-inline-start: 18rem;
-    opacity: 75%;
+    opacity: 90%;
+    &::before {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background-image: repeating-linear-gradient(
+            -45deg,
+            rgb(2, 19, 19) 0,
+            rgb(2, 19, 19) 10px,
+            transparent 10px, 
+            transparent 20px
+        );
+        content: '';
+        animation: stripesAnimation 10s linear infinite;
+        background-size: var(--stripes-size) var(--stripes-size);
+    }
+}
+
+@keyframes stripesAnimation {
+    to {background-position: var(--stripes-size) var(--stripes-size);}
 }
 
 .infoCardFrame {
@@ -340,20 +399,22 @@
     flex-direction: column;
     justify-content: start;
     align-items: center;
-    border: #d1d1d14a 1px solid;
+    /* border: #d1d1d14a 1px solid; */
 }
 
 .cardsCarousel {
+    backdrop-filter: blur(1px);
     position: relative;
     height: auto;
     padding: 4rem;
     width: 90%;
-    margin-block-start: 4rem;
+    /* margin-block-start: 4rem; */
+    margin-block-end: 4rem;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 5;
-    border: #d1d1d14a 1px solid;
+    /* border: #d1d1d14a 1px solid; */
 }
 
 .itemWrap {
@@ -378,14 +439,22 @@
 }
 
 .itemChevron {
-    position: relative;
-    top: 5px;
+    position: absolute;
+    margin-top: 2px;
+    color:rgb(116, 213, 214);
 }
 
 .itemButton {
-    color:rgb(234, 168, 114);
+    color:rgb(116, 213, 214);
     font-size: clamp(1.4rem, 1vw, 1rem);
     margin-block-start: 1rem;
+}
+
+.itemLine {
+    height: 1px;
+    width: 20%;
+    background-color: rgb(116, 213, 214);
+    transition: .75s;
 }
 
 .carouselItem {
@@ -394,6 +463,28 @@
     width: 17rem;
     margin-inline: 2rem;
     flex: none;
+}
+
+.loading {
+    height: 600px;
+    width: 100%;
+    margin-block-end: 4rem;
+    background-color: #969087;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    flex-direction: column;
+
+    background-image: radial-gradient(
+        rgba(248, 248, 248, 0.217) 5%,
+        transparent 10%
+    );
+    background-position: 0% 0%;
+    background-size: 2vmin 2vmin;
+    left: 0px;
+    top: 0px;
+    z-index: 1;
+    transition: 700ms;
 }
 
 .teste {
