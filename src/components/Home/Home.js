@@ -5,13 +5,12 @@ import astronaut from '../../assets/images/astronaut2.jpg'
 import spaceStation from '../../assets/images/spaceStation.jpg'
 import spaceship from '../../assets/images/spaceship.jpg'
 import galaxia from '../../assets/images/galaxia.jpg'
-import alienLifeform from '../../assets/images/alienLifeform2.jpg'
-import planet from '../../assets/images/planet.jpg'
 import futuristicBackground2 from '../../assets/images/futuristicBackground5.jpg'
-import futuristicBackground3 from '../../assets/images/futuristicBackground1.jpg'
 import { ImPlay3 } from 'react-icons/im'
 import { BiChevronRight } from 'react-icons/bi'
-import { BsChevronCompactDown } from 'react-icons/bs'
+import { FaDiscord } from 'react-icons/fa'
+import { AiOutlineMail } from 'react-icons/ai'
+import { BsChevronCompactDown, BsLinkedin, BsGithub, BsInstagram } from 'react-icons/bs'
 
 export const Home = () => {
 
@@ -43,12 +42,30 @@ export const Home = () => {
 
     return (
         <div className={styles.mainContainer}>
-
+            <svg>
+                <filter id='grainy'>
+                    <feTurbulence
+                        type='turbulence'
+                        baseFrequency='.85'
+                    />
+                </filter>
+            </svg>
             <video className={styles.videoBG} src={video} autoPlay muted loop playsInline/>
 
             <div className={styles.subContainer}>
                 <div className={styles.banner}>
-                    <div className={styles.navbar}></div>
+                    <div className={styles.navbar}>
+                        <h1 className={styles.logo}>M.</h1>
+                        <a className={styles.navItem}>
+                            Entrar
+                            <div className={styles.buttonBorder}>
+                                <span className={styles.topLeft} style={{top: '.3rem', left: '.3rem'}}></span>
+                                <span className={styles.topRight} style={{top: '.3rem', right: '.3rem'}}></span>
+                                <span className={styles.bottomLeft} style={{bottom: '.3rem', left: '.3rem'}}></span>
+                                <span className={styles.bottomRight} style={{bottom: '.3rem', right: '.3rem'}}></span>
+                            </div>
+                        </a>
+                    </div>
                     <div className={styles.titleWrap}>
                         <h1 className={styles.title}>Mirror.</h1>
                         <p className={styles.subTitle}>Experiencie o outro lado.</p>
@@ -91,11 +108,20 @@ export const Home = () => {
                             <span className={styles.topRightCard}></span>
                             <span className={styles.bottomLeftCard}></span>
                             <span className={styles.bottomRightCard}></span>
-                            <h1 className={styles.teste}>Placeholder</h1>
-                            <p className={styles.teste}>oi</p>
-                            <p className={styles.teste}>oi</p>
-                            <p className={styles.teste}>oi</p>
-                            <p className={styles.teste}>oi</p>
+                            <h1 className={styles.teste}>Bem-vindo ao Mirror.</h1>
+                            <p className={styles.infoCardText}>Nosso estimado Programa de Exploração Espacial embarca em uma exploração inspiradora para desvendar os mistérios do universo.</p>
+                            <p className={styles.infoCardText}>Utilizando instrumentos de última geração, buscamos por imagens jamais antes vistas e informações valiosas que possam responder dúvidas que existem há milhares de anos.</p>
+                            <p className={styles.infoCardText}>Juntos, podemos iluminar o caminho para um futuro onde não há limites para a sabedoria.</p>
+                            <a className={styles.subscribeButton}>
+                                <div className={styles.buttonBorder}>
+                                    <span className={styles.topLeft} style={{borderColor: 'rgb(116, 213, 214)', top: '.3rem', left: '.3rem'}}></span>
+                                    <span className={styles.topRight} style={{borderColor: 'rgb(116, 213, 214)', top: '.3rem', right: '.3rem'}}></span>
+                                    <span className={styles.bottomLeft} style={{borderColor: 'rgb(116, 213, 214)', bottom: '.3rem', left: '.3rem'}}></span>
+                                    <span className={styles.bottomRight} style={{borderColor: 'rgb(116, 213, 214)', bottom: '.3rem', right: '.3rem'}}></span>
+                                </div>
+                                <p>Inscreva-se</p>
+                                <AiOutlineMail/>
+                            </a>
                         </div>
                     </div>
                         <span className={styles.decoLines}></span>
@@ -147,9 +173,9 @@ export const Home = () => {
                     <span className={styles.topRightCard}></span>
                     <span className={styles.bottomLeftCard}></span>
                     <span className={styles.bottomRightCard}></span>
-                    <h1 className={styles.logHeader} style={{marginBlock: '2rem'}}>Últimas notícias</h1>
-                    <div style={{display: 'flex'}}>
-                        <div className={styles.itemWrap} onMouseOver={cardSelect} onMouseLeave={cardDeselect}>
+                    <h1 className={styles.noticiasHeader} style={{marginBlock: '2rem'}}>Últimas notícias</h1>
+                    <div className={styles.noticiasBody}>
+                        <div id='one' className={styles.itemWrap1} onMouseOver={cardSelect} onMouseLeave={cardDeselect}>
                             <img className={styles.carouselItem} src={spaceship}></img>
                             <p className={styles.itemText}>Modelos de estações espaciais</p>
                             <div style={{display: 'flex', flexDirection: 'column'}}>
@@ -158,7 +184,7 @@ export const Home = () => {
                             </div>
                             <div id='estacao' className={styles.filler}></div>
                         </div>
-                        <div className={styles.itemWrap} onMouseOver={cardSelect} onMouseLeave={cardDeselect}>
+                        <div id='two' className={styles.itemWrap2} onMouseOver={cardSelect} onMouseLeave={cardDeselect}>
                             <img className={styles.carouselItem} src={futuristicBackground2}></img>
                             <p className={styles.itemText}>Instalações em outros planetas</p>
                             <div style={{display: 'flex', flexDirection: 'column'}}>
@@ -167,7 +193,7 @@ export const Home = () => {
                             </div>
                             <div id='instalacao' className={styles.filler}></div>
                         </div>
-                        <div className={styles.itemWrap} onMouseOver={cardSelect} onMouseLeave={cardDeselect}>
+                        <div id='three' className={styles.itemWrap3} onMouseOver={cardSelect} onMouseLeave={cardDeselect}>
                             <img className={styles.carouselItem} src={galaxia}></img>
                             <p className={styles.itemText}>Galáxias recém-descobertas</p>
                             <div style={{display: 'flex', flexDirection: 'column'}}>
@@ -178,14 +204,26 @@ export const Home = () => {
                         </div>
                     </div>
                 </div>
-                <div className={styles.footer}>
-                    <div>
-                        
-                    </div>
-                    <div>
-
-                    </div>
-                </div>
+                <ul className={styles.footer}>
+                    <li id='github' className={styles.socialsGithub}>
+                        <BsGithub className={styles.socials}/>
+                    </li>
+                    <li id='discord' className={styles.socialsDiscord}>
+                        <FaDiscord className={styles.socials}/>
+                    </li>
+                    <li id='instagram' className={styles.socialsInstagram}>
+                        <BsInstagram className={styles.socials}/>
+                    </li>
+                    <li id='linkedin' className={styles.socialsLinkedin}>
+                        <BsLinkedin className={styles.socials}/>
+                    </li>
+                    <li id='cinema' className={styles.creditosCinema}>
+                        <a className={styles.creditosText}>SpaceCinema</a>
+                    </li>
+                    <li id='mark' className={styles.creditosMark}>
+                        <a className={styles.creditosText}>Mark Kolobaev</a>
+                    </li>
+                </ul>
             </div>
         </div>
     )

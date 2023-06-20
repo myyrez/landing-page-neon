@@ -8,6 +8,24 @@
     url('../../assets/fonts/RobotoMono-VariableFont_wght.ttf') format('truetype');
 }
 
+body::before,
+body::after {
+    position: absolute;
+    left: 0;
+    top: 0;
+    content: '';
+    width: 100%;
+    height: 100%;
+    z-index: 4;
+    opacity: 20%;
+    pointer-events: none;
+}
+
+body::before {
+    background-color: #000;
+    filter: url(#grainy);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -53,8 +71,42 @@
     top: 0px;
     min-height: 15vh;
     width: 98.8%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
     background-color: #15151596;
     z-index: 4;
+}
+
+.navItem {
+    position: relative;
+    padding: 1rem;
+    margin-inline-end: 4rem;
+    font-size: clamp(2rem, 5vw + 1, 5rem);
+    transition: .3s;
+    background-color: rgba(182, 119, 67, 0.263);
+}
+
+.navItem:hover {
+    cursor: pointer;
+    background-color: rgba(182, 119, 67, 0.066);
+}
+
+.logo {
+    position: absolute;
+    left: 10%;
+    width: fit-content;
+    height: auto;
+    /* background-color: red; */
+    transform: scaleX(-1);
+    backdrop-filter: blur(10px);
+    padding: .5rem;
+    transition: .5s;
+}
+
+.logo:hover {
+    cursor: pointer;
+    box-shadow: 0 0px 5px rgba(255, 255, 255, 0.075) inset, 0 0 50px rgba(255, 255, 255, 0.121);
 }
 
 .banner {
@@ -191,7 +243,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: x-large;
+    font-size: clamp(1rem, 3vw, 1.5rem);;
     position: absolute;
     top: .1rem;
     left: .1rem;
@@ -199,7 +251,30 @@
     height: 5.8rem;
     clip-path: polygon(50% 0%,75% 6.7%,93.3% 25%,100% 50%,93.3% 75%,75% 93.3%,50% 100%,25% 93.3%,6.7% 75%,0% 50%,6.7% 25%,25% 6.7%,50% 0%);
     background-color: rgba(0, 0, 0, 0.295);
+    color: #fff;
     z-index: -1;
+}
+
+.subscribeButton {
+    position: relative;
+    width: 90%;
+    font-size: clamp(1.3rem, 1vw, 1rem);
+    background-color: rgba(9, 75, 77, 0.331);
+    color: rgb(116, 213, 214);
+    padding: 1rem;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    font-weight: 500;
+    transition: 200ms ease;
+}
+
+.subscribeButton:hover {
+    background-color: rgba(3, 33, 34, 0.333);
+    cursor: pointer;
+    box-shadow: 0 0px 0px rgba(255, 255, 255, 0.075) inset, 0 0 30px rgba(255, 255, 255, 0.13);
 }
 
 .buttonBorder {
@@ -328,7 +403,7 @@
     height: auto;
     width: 100%;
     z-index: 0;
-    background-color: #131212;
+    background-color: rgb(24, 22, 21);
     box-shadow: 0 0px 5px rgba(255, 255, 255, 0.075) inset, 0 0 30px rgba(255, 255, 255, 0.13);
     
     background-image: radial-gradient(
@@ -365,6 +440,7 @@
     width: 15rem;
     background-image: linear-gradient(90deg, #fff 10%, transparent 100%);
     transform: rotate(90deg);
+    z-index: 0;
 }
 .decoLines2 {
     position: absolute;
@@ -374,6 +450,7 @@
     width: 15rem;
     background-image: linear-gradient(90deg, #fff 10%, transparent 100%);
     transform: rotate(90deg);
+    z-index: 0;
 }
 
 .infoCard {
@@ -388,7 +465,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    /* margin-inline-start: 18rem; */
+    z-index: 4;
     opacity: 90%;
     &::before {
         position: absolute;
@@ -418,8 +495,16 @@
     display: flex;
     padding: .50rem;
     flex-direction: column;
-    justify-content: start;
+    justify-content: center;
     align-items: center;
+}
+
+.infoCardText {
+    text-align: center;
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    color: #fff;
+    margin-block: 1rem;
+    line-height: 2rem;
 }
 
 .cardsCarousel {
@@ -435,8 +520,7 @@
     flex-direction: column;
 }
 
-.itemWrap {
-    /* background-color: red; */
+.itemWrap1, .itemWrap2, .itemWrap3 {
     position: relative;
     display: flex;
     height: 30rem;
@@ -450,7 +534,7 @@
     padding: 1rem;
 }
 
-.itemWrap:hover {
+.itemWrap1:hover, .itemWrap2:hover, .itemWrap3:hover {
     box-shadow: 0 0px 50px rgba(255, 255, 255, 0.075) inset, 0 0 20px rgba(255, 255, 255, 0.034);
 }
 
@@ -621,15 +705,191 @@
     font-size: 50px;
     color: #fff;
 }
+.noticiasHeader {
+    font-size: 50px;
+    color: #fff;
+    text-align: center;
+}
+
+.noticiasBody {
+    display: flex;
+}
 
 .footer {
     width: 100%;
     height: 15rem;
     border-top: #615d57 1px solid;
     display: grid;
+    grid-template-areas: 
+        'github'
+        'discord'
+        'instagram'
+        'linkedin'
+        'cinema'
+        'mark';
+}
+
+@media (min-width: 10em) {
+    .footer {
+        grid-template-areas: 
+            'github discord instagram linkedin'
+            'cinema cinema mark mark'
+    }
+}
+
+.socialsGithub {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    grid-area: github;
+    /* border-inline: #615d57 1px solid; */
+    border: #615d57 1px solid;
+    transition: .3s;
+}
+.socialsDiscord {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    grid-area: discord;
+    /* border-right: #615d57 1px solid; */
+    border: #615d57 1px solid;
+    transition: .3s;
+}
+.socialsInstagram {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    grid-area: instagram;
+    /* border-right: #615d57 1px solid; */
+    border: #615d57 1px solid;
+    transition: .3s;
+}
+.socialsLinkedin {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    grid-area: linkedin;
+    /* border-right: #615d57 1px solid; */
+    border: #615d57 1px solid;
+    transition: .3s;
+}
+
+.socials {
+    color: #74d5d6;
+    font-size: clamp(1.5rem, 5vw, 2rem);
+}
+
+.creditosCinema {
+    height: auto;
+    width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    grid-area: cinema;
+    border: #615d57 1px solid;
+    transition: .3s;
+}
+.creditosMark {
+    height: auto;
+    width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    grid-area: mark;
+    border: #615d57 1px solid;
+    transition: .3s;
+}
+
+.creditosText {
+    font-size: clamp(1.2rem, 1vw, 2rem);
+    color: #fff;
+}
+
+li:hover {
+    cursor: pointer;
+    background-color: #615d5715;
 }
 
 .teste {
-    height: 5rem;
     color: #fff;
+    margin-bottom: 1rem;
+}
+
+@media (max-width: 1140px) {
+    .loading {
+        height: auto;
+        padding-block: 2rem;
+        flex-direction: column-reverse;
+    }
+    .logSide {
+        width: 90%;
+        height: auto;
+        padding-block: 5rem;
+    }
+    .logHeader {
+        width: 70%;
+    }
+    .console {
+        position: absolute;
+        top: 2rem;
+        right: 10%;
+        z-index: 4;
+        width: 13rem;
+        height: 13rem;
+    }
+    .logText {
+        font-size: clamp(.2rem, 1vw, .3rem);
+    }
+    .logDate {
+        font-size: clamp(.2rem, 1vw, .3rem);
+    }
+    .logMessage {
+        font-size: clamp(.2rem, 1vw, .3rem);
+    }
+
+    @keyframes logMessages {
+        0%, 9% {transform: translateY(-0px);}
+        10%, 19% {transform: translateY(-17.6px);}
+        20%, 29% {transform: translateY(-35.2px);}
+        30%, 39% {transform: translateY(-52.8px);}
+        40%, 49% {transform: translateY(-70.4px);}
+        50%, 59% {transform: translateY(-88px);}
+        60%, 69% {transform: translateY(-105.6px);}
+        70%, 79% {transform: translateY(-123.2px);}
+        80%, 89% {transform: translateY(-140.8px);}
+        90%, 98% {transform: translateY(-158.4px);}
+        99%, 100% {transform: translateY(-176px);}
+    }
+
+    .noticiasBody {
+        width: auto;
+    }
+    .itemWrap1, .itemWrap2, .itemWrap3 {
+        width: 17rem;
+    }
+}
+
+@media (max-width: 915px) {
+    .noticiasBody {
+        display: grid;
+        grid-auto-columns: auto;
+        grid-template-areas: 
+            'estacao instalacao'
+            'galaxia galaxia';
+    }
+    .itemWrap1 {
+        grid-area: estacao;
+    }
+    .itemWrap2 {
+        grid-area: instalacao;
+    }
+    .itemWrap3 {
+        grid-area: galaxia;
+    }
 }
