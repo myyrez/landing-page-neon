@@ -318,9 +318,8 @@ export const App = () => {
   }
 
   return (
-    <>
     <div className={styles.background}>
-      
+    
       <div className={styles.login} id='login'>
         <div className={styles.headerDiv}>
           <h1 className={styles.header}>Mirror.</h1>
@@ -454,14 +453,5 @@ export const App = () => {
         <div className={styles.cadastroImagem} id='cadastroImagem'/>
       </div>
     </div>
-    <svg>
-        <filter id='grainy'>
-          <feTurbulence
-            type='turbulence'
-            baseFrequency='.85'
-          />
-        </filter>
-      </svg>
-    </>
   )
 }
