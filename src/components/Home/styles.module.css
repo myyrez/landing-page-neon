@@ -8,21 +8,25 @@
     url('../../assets/fonts/RobotoMono-VariableFont_wght.ttf') format('truetype');
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body::before,
 body::after {
     position: absolute;
     left: 0;
     top: 0;
     content: '';
-    width: 100%;
+    width: 200%;
     height: 100%;
     z-index: 4;
-    opacity: 20%;
+    opacity: 15%;
     pointer-events: none;
 }
 
 body::before {
-    background-color: #000;
+    background-color: #00000000;
     filter: url(#grainy);
 }
 
@@ -45,6 +49,7 @@ body::before {
 .videoBG {
     position: absolute;
     height: 100vh;
+    height: 100svh;
     width: 98.8%;
     object-fit: cover;
     opacity: 50%;
@@ -74,7 +79,7 @@ body::before {
     display: flex;
     align-items: center;
     justify-content: end;
-    background-color: #15151596;
+    background-color: #15151547;
     z-index: 4;
 }
 
@@ -85,11 +90,15 @@ body::before {
     font-size: clamp(2rem, 5vw + 1, 5rem);
     transition: .3s;
     background-color: rgba(182, 119, 67, 0.263);
+    text-decoration: none;
 }
 
 .navItem:hover {
     cursor: pointer;
     background-color: rgba(182, 119, 67, 0.066);
+}
+.navItem:visited {
+    color: #fff;
 }
 
 .logo {
@@ -97,11 +106,15 @@ body::before {
     left: 10%;
     width: fit-content;
     height: auto;
-    /* background-color: red; */
     transform: scaleX(-1);
     backdrop-filter: blur(10px);
     padding: .5rem;
     transition: .5s;
+    font-size: clamp(1.5rem, 3vw, 3rem);
+    text-decoration: none;
+}
+.logo:visited {
+    color: #fff;
 }
 
 .logo:hover {
@@ -111,6 +124,7 @@ body::before {
 
 .banner {
     height: 100vh;
+    height: 100svh;
     width: 100%;
     display: flex;
     align-items: center;
@@ -216,6 +230,10 @@ body::before {
     border: none;
     font-weight: 500;
     transition: 200ms ease;
+}
+
+:target {
+    scroll-margin-top: .8em;
 }
 
 .joinButton:hover {
@@ -811,7 +829,7 @@ body::before {
     color: #fff;
 }
 
-li:hover {
+a:hover {
     cursor: pointer;
     background-color: #615d5715;
 }
@@ -822,6 +840,29 @@ li:hover {
 }
 
 @media (max-width: 1140px) {
+    .banner {
+        flex-direction: row-reverse;
+    }
+    .imagesContainerWrapper {
+        flex-direction: column;
+        margin-top: 10%;
+    }
+    .imagesContainer {
+        width: 30rem;
+    }
+    .img1 {
+        height: 200px;
+    }
+    .titleWrap {
+        margin-top: 0;
+    }
+    .chevron {
+        position: absolute;
+        right: 50%;
+        left: 50%;
+        transform: translate(-50%);
+    }
+
     .loading {
         height: auto;
         padding-block: 2rem;
@@ -833,7 +874,7 @@ li:hover {
         padding-block: 5rem;
     }
     .logHeader {
-        width: 70%;
+        width: 65%;
     }
     .console {
         position: absolute;
@@ -891,5 +932,71 @@ li:hover {
     }
     .itemWrap3 {
         grid-area: galaxia;
+    }
+
+    .img1 {
+        height: 150px;
+    }
+    .imagesContainer {
+        width: 25rem;
+        height: 150px;
+    }
+    .polygon {
+        width: 3rem;
+        height: 3rem;
+    }
+    .watchButton {
+        width: 3.2rem;
+        height: 3.2rem;
+    }
+}
+
+@media (max-width: 750px) {
+    .banner {
+        flex-direction: column;
+        gap: 2rem;
+        justify-content: end;
+    }
+    .subTitle {
+        margin-bottom: 0rem;
+    }
+    .imagesContainerWrapper {
+        gap: 1.5rem;
+        margin-top: 0rem;
+        margin-bottom: 3rem;
+    }
+}
+
+@media (max-width: 620px) {
+    .noticiasBody {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 490px) {
+    .infoCard {
+        width: 280px;
+    }
+    .teste {
+        text-align: center;
+    }
+
+    .logHeader {
+        margin-top: 8rem;
+        width: 100%;
+    }
+    .console {
+        left: 50%;
+        right: 50%;
+        transform: translate(-50%);
+    }
+
+    .textBox {
+        gap: .5rem;
+    }
+    .imagesContainer {
+        width: 20rem;
+        height: 150px;
     }
 }

@@ -55,8 +55,8 @@ export const Home = () => {
             <div className={styles.subContainer}>
                 <div className={styles.banner}>
                     <div className={styles.navbar}>
-                        <h1 className={styles.logo}>M.</h1>
-                        <a className={styles.navItem}>
+                        <a href='' className={styles.logo}>M.</a>
+                        <a href='./login' className={styles.navItem}>
                             Entrar
                             <div className={styles.buttonBorder}>
                                 <span className={styles.topLeft} style={{top: '.3rem', left: '.3rem'}}></span>
@@ -74,8 +74,8 @@ export const Home = () => {
                         <div className={styles.imagesContainer}>
                             <img className={styles.img1} src={astronaut}></img>
                             <div className={styles.textBox}>
-                                <p className={styles.img1Text}>Nosso programa espacial tem como objetivo viajar o vasto universo e catalogar descobertas.</p>
-                                <a className={styles.joinButton}>
+                                <p className={styles.img1Text}>Mirror tem como objetivo viajar o universo e catalogar descobertas.</p>
+                                <a onClick={() => document.getElementById('pageScroll').scrollIntoView({behavior: 'smooth'})} className={styles.joinButton}>
                                     Saiba mais
                                     <div className={styles.buttonBorder}>
                                         <span className={styles.topLeft}></span>
@@ -99,10 +99,10 @@ export const Home = () => {
                     </div>
                 </div>
             </div>
-            <div className={styles.pageScroll}>
+            <div id='pageScroll' className={styles.pageScroll}>
                 <div className={styles.part1}>
                     <div style={{display: 'flex', position: 'relative', flexDirection: 'column', justifyContent: 'center', width: '100%', height: '100%'}}>
-                    <div className={styles.infoCard}>
+                    <div id='infoCard' className={styles.infoCard}>
                         <div className={styles.infoCardFrame}>
                             <span className={styles.topLeftCard}></span>
                             <span className={styles.topRightCard}></span>
@@ -205,24 +205,24 @@ export const Home = () => {
                     </div>
                 </div>
                 <ul className={styles.footer}>
-                    <li id='github' className={styles.socialsGithub}>
+                    <a href='https://github.com/notmathee' id='github' className={styles.socialsGithub}>
                         <BsGithub className={styles.socials}/>
-                    </li>
-                    <li id='discord' className={styles.socialsDiscord}>
+                    </a>
+                    <a href='https://discordapp.com/users/myrez_' id='discord' className={styles.socialsDiscord}>
                         <FaDiscord className={styles.socials}/>
-                    </li>
-                    <li id='instagram' className={styles.socialsInstagram}>
+                    </a>
+                    <a href='https://www.instagram.com/notmathee/' id='instagram' className={styles.socialsInstagram}>
                         <BsInstagram className={styles.socials}/>
-                    </li>
-                    <li id='linkedin' className={styles.socialsLinkedin}>
+                    </a>
+                    <a href='https://www.linkedin.com/in/matheus-franco-carlos-07714b222/' id='linkedin' className={styles.socialsLinkedin}>
                         <BsLinkedin className={styles.socials}/>
-                    </li>
-                    <li id='cinema' className={styles.creditosCinema}>
+                    </a>
+                    <a href='https://www.youtube.com/@SpaceCinemaYT' id='cinema' className={styles.creditosCinema}>
                         <a className={styles.creditosText}>SpaceCinema</a>
-                    </li>
-                    <li id='mark' className={styles.creditosMark}>
+                    </a>
+                    <a href='https://www.markkolobaev.com/' id='mark' className={styles.creditosMark}>
                         <a className={styles.creditosText}>Mark Kolobaev</a>
-                    </li>
+                    </a>
                 </ul>
             </div>
         </div>
