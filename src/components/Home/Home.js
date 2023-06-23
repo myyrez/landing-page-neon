@@ -56,7 +56,7 @@ export const Home = () => {
                 <div className={styles.banner}>
                     <div className={styles.navbar}>
                         <a href='' className={styles.logo}>M.</a>
-                        <a href='./login' className={styles.navItem}>
+                        <a href='' className={styles.navItem}>
                             Entrar
                             <div className={styles.buttonBorder}>
                                 <span className={styles.topLeft} style={{top: '.3rem', left: '.3rem'}}></span>
