@@ -141,7 +141,7 @@ body::before {
 }
 
 .title {
-    margin-top: 2rem;
+    margin-top: 4rem;
     font-size: clamp(5rem, 8vw, 8rem);
     transform: scaleX(-1);
 }
@@ -953,7 +953,7 @@ a:hover {
     .banner {
         flex-direction: column;
         gap: 2rem;
-        justify-content: end;
+        justify-content: center;
     }
     .subTitle {
         margin-bottom: 0rem;
