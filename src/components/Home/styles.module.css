@@ -872,24 +872,24 @@ a:hover {
         padding-block: 5rem;
     }
     .logHeader {
-        width: 65%;
+        width: 45%;
     }
     .console {
         position: absolute;
         top: 2rem;
         right: 10%;
         z-index: 4;
-        width: 13rem;
+        width: 19rem;
         height: 13rem;
     }
     .logText {
-        font-size: clamp(.2rem, 1vw, .3rem);
+        font-size: clamp(.5rem, 1vw, .3rem);
     }
     .logDate {
-        font-size: clamp(.2rem, 1vw, .3rem);
+        font-size: clamp(.5rem, 1vw, .3rem);
     }
     .logMessage {
-        font-size: clamp(.2rem, 1vw, .3rem);
+        font-size: clamp(.5rem, 1vw, .3rem);
     }
 
     @keyframes logMessages {
@@ -973,6 +973,10 @@ a:hover {
 }
 
 @media (max-width: 490px) {
+    .part1 {
+        height: 750px;
+
+    }
     .infoCard {
         width: 280px;
     }
@@ -988,6 +992,16 @@ a:hover {
         left: 50%;
         right: 50%;
         transform: translate(-50%);
+        width: 80%;
+    }
+    .logText {
+        font-size: clamp(.5rem, 1vw, .3rem);
+    }
+    .logDate {
+        font-size: clamp(.5rem, 1vw, .3rem);
+    }
+    .logMessage {
+        font-size: clamp(.5rem, 1vw, .3rem);
     }
 
     .textBox {
