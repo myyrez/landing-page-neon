@@ -165,7 +165,7 @@ export const Home = () => {
                         <span className={styles.decoLines3} style={{bottom: '0', left: '0'}}></span>
                         <span className={styles.decoLines3} style={{bottom: '0', left: '0', transform: 'rotate(-90deg)'}}></span>
                         <h1 className={styles.logHeader}>Nossas estações utilizam tecnologia de ponta</h1>
-                        <p className={styles.img2Text}>Preocupações com navegação e manuseio de arquivos são quase inexistentes! No atual momento, diversas estações estão equipadas com inteligências artifiais capazes de conduzir tripulantes e resolver a grande maioria de problemas.</p>
+                        <p className={styles.img2Text}>Preocupações com navegação e manuseio de arquivos são quase inexistentes! No atual momento, diversas estações estão equipadas com inteligências artificiais capazes de conduzir tripulantes e resolver a grande maioria dos problemas.</p>
                     </div>
                 </div>
                 <div className={styles.cardsCarousel}>
