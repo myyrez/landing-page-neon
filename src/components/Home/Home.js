@@ -205,7 +205,7 @@ export const Home = () => {
                     </div>
                 </div>
                 <ul className={styles.footer}>
-                    <a href='https://github.com/notmathee' id='github' className={styles.socialsGithub}>
+                    <a href='https://github.com/myyrez' id='github' className={styles.socialsGithub}>
                         <BsGithub className={styles.socials}/>
                     </a>
                     <a href='https://discordapp.com/users/myrez_' id='discord' className={styles.socialsDiscord}>
